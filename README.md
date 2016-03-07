@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/darlanmendonca/generator-nude.svg)](https://travis-ci.org/darlanmendonca/generator-nude) 
+[![Coverage Status](https://coveralls.io/repos/darlanmendonca/generator-nude/badge.svg?branch=master&service=github)](https://coveralls.io/github/darlanmendonca/generator-nude?branch=master)
+[![npm version](https://badge.fury.io/js/generator-nude.svg)](https://badge.fury.io/js/generator-nude)
+
 A simple generator (for Yeoman) to scaffolding Node.js API's
 
 Generate an API in Ecma 6 or 5.
