@@ -1,0 +1,36 @@
+{
+  "name": "generator-nude",
+  "version": "0.0.0",
+  "description": "A simple generator (for Yeoman) to scaffolding Node.js API's",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "scripts/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darlanmendonca/generator-nude.git"
+  },
+  "keywords": [
+    "nude",
+    "expess.js",
+    "hapi.js",
+    "api"
+  ],
+  "author": "Darlan Mendonça <darlanmendonca@gmail.com> (https://github.com/darlanmendonca)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darlanmendonca/generator-nude/issues"
+  },
+  "homepage": "https://github.com/darlanmendonca/generator-nude#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "yeoman-assert": "^2.1.1",
+    "yeoman-generator": "^0.22.5",
+    "yeoman-test": "^1.1.0"
+  },
+  "dependencies": {
+    "gulp-babel": "^6.1.2",
+    "gulp-if": "^2.0.0"
+  }
+}
