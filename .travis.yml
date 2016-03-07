@@ -1,7 +1,7 @@
 language: node_js
 node_js:
 	- "0.12.9"
-	- "4.3.2"
+	- "4.2.1"
 	- "5.7.1"
 env:
 	- EXPORT_COVERAGE=1 CXX=g++-4.8
