@@ -6,7 +6,7 @@ A simple generator (for Yeoman) to scaffolding Node.js API's
 
 Generate an API in Ecma 6 or 5.
 
-### Requires
+### Requirements
 This generator, is a yeoman generator, and require following modules:
 
 - yo
