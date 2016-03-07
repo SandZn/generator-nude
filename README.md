@@ -2,9 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/darlanmendonca/generator-nude/badge.svg?branch=master&service=github)](https://coveralls.io/github/darlanmendonca/generator-nude?branch=master)
 [![npm version](https://badge.fury.io/js/generator-nude.svg)](https://badge.fury.io/js/generator-nude)
 
-A simple generator (for Yeoman) to scaffolding Node.js API's
-
-Generate an API in Ecma 6 or 5.
+A simple generator (for Yeoman) to scaffolding Node.js API's, with Ecma Script 6 or 5.
 
 ### Requirements
 This generator, is a yeoman generator, and require following modules:
@@ -24,7 +22,7 @@ First install this module as global
 npm i -g generator-nude
 ```
 
-And to use, run:
+And to use, go to a empty folder, where you want generate project, and run:
 ```sh
 yo nude
 ```
