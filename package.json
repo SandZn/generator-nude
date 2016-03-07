@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "gulp-babel": "^6.1.2",
-    "gulp-if": "^2.0.0"
+    "gulp-if": "^2.0.0",
+    "underscore": "^1.8.3"
   }
 }
