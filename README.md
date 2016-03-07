@@ -1,6 +1,6 @@
 A simple generator (for Yeoman) to scaffolding Node.js API's
 
-Writed in Ecma Script 6 (but you choose how you want your application, in ecma 6, ecma 5, or coffeescript).
+Generate an API in Ecma 6 or 5.
 
 ### Requires
 This generator, is a yeoman generator, and require following modules:
