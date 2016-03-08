@@ -9,7 +9,7 @@ let options = {
 	debug: true,
 	// parse: true,
 	silent: true,
-	includeFilters: ['\\.<%= extScript %>$']
+	includeFilters: ['\\.js$']
 };
 
 gulp.task('apiDocs', function(done) {

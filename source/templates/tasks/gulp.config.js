@@ -2,7 +2,7 @@
 
 module.exports = {
 	lint: [
-		'./gulpfile.<%= extScript %>',
+		'./gulpfile.js',
 		'./test/**/*.js',
 	]
 };

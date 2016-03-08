@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+cd source; babel index.js --out-file build.js

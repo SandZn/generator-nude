@@ -6,9 +6,9 @@ gulp.task('nodemon', function(cb) {
 	let nodemon = require('gulp-nodemon');
 
 	let options = {
-		script: 'server/app.<%= extScript %>',
+		script: 'server/app.js',
 		quiet: true,
-		ext: '<%= extScript %>',
+		ext: 'js',
 		ignore: [
 			'server/docs'
 		],
