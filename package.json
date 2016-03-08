@@ -4,9 +4,9 @@
   "description": "A simple generator (for Yeoman) to scaffolding Node.js API's",
   "main": "source/index.es5.js",
   "scripts": {
-    "pretest": "npm run build",
+    "pretest": "npm run transpile",
     "test": "scripts/test",
-    "build": "scripts/build"
+    "transpile": "scripts/transpile"
   },
   "repository": {
     "type": "git",
