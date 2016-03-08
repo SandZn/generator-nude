@@ -2,4 +2,5 @@
 
 set -e
 
-cd source; babel index.js --out-file build.js
+babel source/index.js --out-file source/index.es5.js;
+babel test/unit/generator.spec.js --out-file test/unit/generator.spec.es5.js;

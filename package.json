@@ -2,7 +2,7 @@
   "name": "generator-nude",
   "version": "0.0.2",
   "description": "A simple generator (for Yeoman) to scaffolding Node.js API's",
-  "main": "build/index.js",
+  "main": "source/index.es5.js",
   "scripts": {
     "pretest": "npm run build",
     "test": "scripts/test",

@@ -4,7 +4,6 @@ let helpers = require('yeoman-test');
 let assert = require('yeoman-assert');
 let generator = `${process.env.PWD}/source/build.js`;
 
-
 describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
