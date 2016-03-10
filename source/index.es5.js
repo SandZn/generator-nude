@@ -2,7 +2,6 @@
 
 var generators = require('yeoman-generator');
 var path = require('path');
-var util = require('util');
 var slugify = require('underscore.string/slugify');
 var mkdirp = require('mkdirp');
 var babel = require('gulp-babel');

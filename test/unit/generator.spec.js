@@ -10,7 +10,7 @@ function scaffolding() {
   let assertion = [
     '.editorconfig',
     '.gitignore',
-    '.jshintrc',
+    '.eslintrc.js',
     'README.md',
     'server',
     'config.js',
