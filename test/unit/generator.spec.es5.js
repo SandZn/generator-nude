@@ -2,7 +2,7 @@
 
 var helpers = require('yeoman-test');
 var assert = require('yeoman-assert');
-var generator = process.env.PWD + '/source/index.es5.js';
+var generator = process.env.PWD + '/app/index.es5.js';
 
 describe('generate a scaffolding', scaffolding);
 
