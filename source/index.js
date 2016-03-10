@@ -2,7 +2,6 @@
 
 let generators = require('yeoman-generator');
 let path = require('path');
-let util = require('util');
 let slugify = require('underscore.string/slugify');
 let mkdirp = require('mkdirp');
 let babel = require('gulp-babel');
@@ -116,7 +115,6 @@ function gulp() {
     dest: this.destinationPath('tasks/lint.js')
   };
   this.fs.copyTpl(config.template, config.dest, this);
-
 
   config = {
     template: this.templatePath('server.js'),
