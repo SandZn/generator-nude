@@ -162,6 +162,7 @@ function docs() {
 function install() {
   this.installDependencies({
     npm: true,
+    bower: false,
     skipInstall: true
   });
 }
