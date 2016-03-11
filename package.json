@@ -1,6 +1,6 @@
 {
   "name": "generator-nude",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple generator (for Yeoman) to scaffolding Node.js API's",
   "main": "app/index.es5.js",
   "scripts": {
