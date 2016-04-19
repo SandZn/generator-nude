@@ -4,7 +4,7 @@
 
 A simple generator (for Yeoman) to scaffolding Node.js API's, with Ecma Script 6 or 5.
 
-![API Illustration](https://d13yacurqjgara.cloudfront.net/users/76870/screenshots/2072692/fanout-pulse.gif)
+![API Illustration](http://www.reddit.com/r/reactiongifs/comments/3a8akf/my_cats_reaction_when_i_leave_home/) Is really simple to use
 
 
 ### Requirements
