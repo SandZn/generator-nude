@@ -54,11 +54,13 @@ function appSecretParam() {
   var _this2 = this;
 
   var done = this.async();
+  var defaultSecret = Math.random().toString(36).slice(-16);
+
   var prompt = {
     type: 'input',
     name: 'appSecret',
     message: 'type secret to use in json web token',
-    default: Math.random().toString(36).slice(-16)
+    default: defaultSecret
   };
 
   this.prompt(prompt, function (data) {
@@ -104,43 +106,7 @@ function gulp() {
   this.directory('.', '.');
 
   this.sourceRoot(path.join(__dirname, 'templates/tasks'), this);
-  var config = void 0;
-
-  config = {
-    template: this.templatePath('gulp.config.js'),
-    dest: this.destinationPath('tasks/gulp.config.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('watch.js'),
-    dest: this.destinationPath('tasks/watch.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('default.js'),
-    dest: this.destinationPath('tasks/default.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('lint.js'),
-    dest: this.destinationPath('tasks/lint.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('server.js'),
-    dest: this.destinationPath('tasks/server.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('docs.js'),
-    dest: this.destinationPath('tasks/docs.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
+  this.directory('.', './tasks');
 }
 
 function express() {

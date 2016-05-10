@@ -12,6 +12,7 @@ A simple generator (for Yeoman) to scaffolding Node.js API's, with Ecma Script 6
 - automatically create Documentation (with [API Docs](http://apidocjs.com/))
 - Integration/E2e Tests (with [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Chai-http](http://chaijs.com/plugins/chai-http/))
 - Coverage Tests (with [Istambul](https://gotwarlost.github.io/istanbul/))
+- authentication with token (using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken))
 
 
 ### Requirements

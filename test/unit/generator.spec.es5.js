@@ -7,7 +7,7 @@ var generator = process.env.PWD + '/app/index.es5.js';
 describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
-  var assertion = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test'];
+  var assertion = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
 
   var params = {
     appName: 'lorem',

@@ -18,7 +18,7 @@ module.exports = generators.Base.extend({
   express,
   test,
   docs,
-  install
+  install,
 });
 
 function constructor() {
@@ -29,7 +29,7 @@ function constructor() {
     desc: 'create an app with name [appName]',
     type: Boolean,
     required: false,
-    defaults: path.basename(process.cwd())
+    defaults: path.basename(process.cwd()),
   });
 }
 
@@ -39,7 +39,7 @@ function appNameParam() {
     type: 'input',
     name: 'appName',
     message: 'application name',
-    default: this.appName
+    default: this.appName,
   };
 
   this.prompt(prompt, data => {
@@ -50,11 +50,16 @@ function appNameParam() {
 
 function appSecretParam() {
   let done = this.async();
+  let defaultSecret = Math
+    .random()
+    .toString(36)
+    .slice(-16);
+
   let prompt = {
     type: 'input',
     name: 'appSecret',
     message: 'type secret to use in json web token',
-    default: Math.random().toString(36).slice(-16)
+    default: defaultSecret,
   };
 
   this.prompt(prompt, data => {
@@ -70,7 +75,7 @@ function scriptTypeParam() {
     name: 'scriptType',
     message: 'javascript is write in',
     default: 'es6',
-    choices: ['es6', 'es5']
+    choices: ['es6', 'es5'],
   };
 
   this.prompt(prompt, data => {
@@ -96,43 +101,7 @@ function gulp() {
   this.directory('.', '.');
 
   this.sourceRoot(path.join(__dirname,  'templates/tasks'), this);
-  let config;
-
-  config = {
-    template: this.templatePath('gulp.config.js'),
-    dest: this.destinationPath('tasks/gulp.config.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('watch.js'),
-    dest: this.destinationPath('tasks/watch.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('default.js'),
-    dest: this.destinationPath('tasks/default.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('lint.js'),
-    dest: this.destinationPath('tasks/lint.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('server.js'),
-    dest: this.destinationPath('tasks/server.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
-
-  config = {
-    template: this.templatePath('docs.js'),
-    dest: this.destinationPath('tasks/docs.js')
-  };
-  this.fs.copyTpl(config.template, config.dest, this);
+  this.directory('.', './tasks');
 }
 
 function express() {
@@ -155,6 +124,6 @@ function install() {
   this.installDependencies({
     npm: true,
     bower: false,
-    skipInstall: true
+    skipInstall: true,
   });
 }

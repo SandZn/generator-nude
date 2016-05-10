@@ -3,6 +3,8 @@
 module.exports = {
   lint: [
     './gulpfile.js',
-    './source/index.js'
-  ]
+    './tasks/*.js',
+    './app/index.js',
+    './test/unit/generator.spec.js',
+  ],
 };

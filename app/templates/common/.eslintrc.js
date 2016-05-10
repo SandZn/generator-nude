@@ -9,14 +9,11 @@ module.exports = {
     browser: true,
     es6: true
   },
-  globals: {
-    angular: true,
-    ENV: true,
-    describe: true,
-    it: true
-  },
   rules: {
     semi: [required, 'always'],
+    'comma-dangle': [required, 'always-multiline'],
+    'comma-style': [required, 'last'],
+    indent: [required, 2],
     curly: [required, 'all'],
     'brace-style': [required, '1tbs'],
     quotes: [required, 'single'],
@@ -42,6 +39,7 @@ module.exports = {
     'block-spacing': [required, 'never'],
     'newline-per-chained-call': required,
     'keyword-spacing': required,
-    'space-unary-ops': required
+    'key-spacing': [required, {afterColon: true}],
+    'space-unary-ops': required,
   }
 };

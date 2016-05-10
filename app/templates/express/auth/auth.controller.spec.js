@@ -1,4 +1,4 @@
-/* globals describe, it */
+/* global describe, it */
 'use strict';
 
 let helper = require('../../test/helper.js');

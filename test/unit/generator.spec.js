@@ -1,3 +1,4 @@
+/* global describe, it, before */
 'use strict';
 
 let helpers = require('yeoman-test');
@@ -20,12 +21,13 @@ function scaffolding() {
     'server/middlewares.js',
     'package.json',
     'server/routers.js',
-    'test'
+    'test',
+    'tasks',
   ];
 
   let params = {
     appName: 'lorem',
-    appSecret: 'lorem'
+    appSecret: 'lorem',
   };
 
   before(done => {
