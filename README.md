@@ -6,6 +6,13 @@ A simple generator (for Yeoman) to scaffolding Node.js API's, with Ecma Script 6
 
 ![API Illustration](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
 
+### Offers
+
+- lint scripts (with ESLint)
+- automatically create Documentation (with API Docs)
+- E2E Tests (with Mocha and Chai)
+- Coverage Tests (with Istambul)
+
 
 ### Requirements
 This generator, is a yeoman generator, and require following modules:
