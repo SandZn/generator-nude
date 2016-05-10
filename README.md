@@ -8,10 +8,10 @@ A simple generator (for Yeoman) to scaffolding Node.js API's, with Ecma Script 6
 
 ### Offers
 
-- lint scripts (with ESLint)
-- automatically create Documentation (with API Docs)
-- E2E Tests (with Mocha and Chai)
-- Coverage Tests (with Istambul)
+- lint scripts (with [ESLint](http://eslint.org/))
+- automatically create Documentation (with [API Docs](http://apidocjs.com/))
+- Integration/E2e Tests (with [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Chai-http](http://chaijs.com/plugins/chai-http/))
+- Coverage Tests (with [Istambul](https://gotwarlost.github.io/istanbul/))
 
 
 ### Requirements
