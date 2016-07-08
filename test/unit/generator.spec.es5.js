@@ -13,12 +13,14 @@ function scaffolding() {
     appSecret: 'lorem'
   };
 
+  var expectedFiles = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
+
   it('in ecma6', function (done) {
     params.scriptType = 'es6';
     helpers.run(generator).withPrompts(params).on('end', assertion);
 
     function assertion() {
-      assertionFiles();
+      assert.file(expectedFiles);
       done();
     }
   });
@@ -28,14 +30,29 @@ function scaffolding() {
     helpers.run(generator).withPrompts(params).on('end', assertion);
 
     function assertion() {
-      assertionFiles();
+      assert.file(expectedFiles);
       done();
     }
   });
 }
 
-function assertionFiles() {
-  var files = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
+// function assertionFiles() {
+//   const files = [
+//     '.editorconfig',
+//     '.gitignore',
+//     '.eslintrc.js',
+//     'README.md',
+//     'server',
+//     'config.js',
+//     'server/controllers.js',
+//     'server/docs',
+//     'gulpfile.js',
+//     'server/middlewares.js',
+//     'package.json',
+//     'server/routers.js',
+//     'test',
+//     'tasks',
+//   ];
 
-  assert.file(files);
-}
+//   assert.file(files);
+// }
