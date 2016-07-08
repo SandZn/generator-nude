@@ -1,4 +1,4 @@
-/* global describe, it, before */
+/* global describe, it */
 'use strict';
 
 let helpers = require('yeoman-test');
@@ -8,7 +8,31 @@ let generator = `${process.env.PWD}/app/index.es5.js`;
 describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
-  let assertion = [
+  let params = {
+    appName: 'lorem',
+    appSecret: 'lorem',
+  };
+
+  it('in ecma6', () => {
+    params.scriptType = 'es6';
+
+    helpers
+      .run(generator)
+      .withPrompts(params)
+      .on('end', assertion);
+  });
+
+  it('in ecma5', () => {
+    params.scriptType = 'es5';
+    helpers
+      .run(generator)
+      .withPrompts(params)
+      .on('end', assertion);
+  });
+}
+
+function assertion() {
+  const files = [
     '.editorconfig',
     '.gitignore',
     '.eslintrc.js',
@@ -25,33 +49,5 @@ function scaffolding() {
     'tasks',
   ];
 
-  let params = {
-    appName: 'lorem',
-    appSecret: 'lorem',
-  };
-
-  before(done => {
-    params.scriptType = 'es6';
-
-    helpers
-      .run(generator)
-      .withPrompts(params)
-      .on('end', () => done());
-  });
-
-  it('in ecma6', function () {
-    assert.file(assertion);
-  });
-
-  before(done => {
-    params.scriptType = 'es5';
-    helpers
-      .run(generator)
-      .withPrompts(params)
-      .on('end', () => done());
-  });
-
-  it('in ecma5', function () {
-    assert.file(assertion);
-  });
+  assert.file(files);
 }

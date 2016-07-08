@@ -8,29 +8,25 @@ var generator = process.env.PWD + '/app/index.es5.js';
 describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
-  var assertion = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
-
   var params = {
     appName: 'lorem',
     appSecret: 'lorem'
   };
 
-  before(function (done) {
+  it('in ecma6', function () {
     params.scriptType = 'es6';
 
-    helpers.run(generator).withPrompts(params).on('end', done);
-  });
-
-  it('in ecma6', function () {
-    assert.file(assertion);
-  });
-
-  before(function (done) {
-    params.scriptType = 'es5';
-    helpers.run(generator).withPrompts(params).on('end', done);
+    helpers.run(generator).withPrompts(params).on('end', assertion);
   });
 
   it('in ecma5', function () {
-    assert.file(assertion);
+    params.scriptType = 'es5';
+    helpers.run(generator).withPrompts(params).on('end', assertion);
   });
+}
+
+function assertion() {
+  var files = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
+
+  assert.file(files);
 }
