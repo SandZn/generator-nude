@@ -36,7 +36,7 @@ function scaffolding() {
     helpers
       .run(generator)
       .withPrompts(params)
-      .on('end', done);
+      .on('end', () => done());
   });
 
   it('in ecma6', function () {
@@ -48,7 +48,7 @@ function scaffolding() {
     helpers
       .run(generator)
       .withPrompts(params)
-      .on('end', done);
+      .on('end', () => done());
   });
 
   it('in ecma5', function () {
