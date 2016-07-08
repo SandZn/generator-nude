@@ -1,4 +1,4 @@
-/* global describe, it, before */
+/* global describe, it */
 'use strict';
 
 var helpers = require('yeoman-test');
@@ -13,19 +13,28 @@ function scaffolding() {
     appSecret: 'lorem'
   };
 
-  it('in ecma6', function () {
+  it('in ecma6', function (done) {
     params.scriptType = 'es6';
-
     helpers.run(generator).withPrompts(params).on('end', assertion);
+
+    function assertion() {
+      assertionFiles();
+      done();
+    }
   });
 
-  it('in ecma5', function () {
+  it('in ecma5', function (done) {
     params.scriptType = 'es5';
     helpers.run(generator).withPrompts(params).on('end', assertion);
+
+    function assertion() {
+      assertionFiles();
+      done();
+    }
   });
 }
 
-function assertion() {
+function assertionFiles() {
   var files = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
 
   assert.file(files);

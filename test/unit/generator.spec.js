@@ -13,25 +13,34 @@ function scaffolding() {
     appSecret: 'lorem',
   };
 
-  it('in ecma6', () => {
+  it('in ecma6', done => {
     params.scriptType = 'es6';
-
     helpers
       .run(generator)
       .withPrompts(params)
       .on('end', assertion);
+
+    function assertion() {
+      assertionFiles();
+      done();
+    }
   });
 
-  it('in ecma5', () => {
+  it('in ecma5', done => {
     params.scriptType = 'es5';
     helpers
       .run(generator)
       .withPrompts(params)
       .on('end', assertion);
+
+    function assertion() {
+      assertionFiles();
+      done();
+    }
   });
 }
 
-function assertion() {
+function assertionFiles() {
   const files = [
     '.editorconfig',
     '.gitignore',
