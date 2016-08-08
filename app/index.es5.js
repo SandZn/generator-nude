@@ -97,27 +97,27 @@ function setTranspile() {
 }
 
 function common() {
-  this.sourceRoot(path.join(__dirname, 'templates/common'), this);
+  this.sourceRoot(__dirname + '/templates/common', this);
   this.directory('.', '.');
 }
 
 function gulp() {
-  this.sourceRoot(path.join(__dirname, 'templates/gulp'), this);
+  this.sourceRoot(__dirname + '/templates/gulp', this);
   this.directory('.', '.');
 
-  this.sourceRoot(path.join(__dirname, 'templates/tasks'), this);
+  this.sourceRoot(__dirname + '/templates/tasks', this);
   this.directory('.', './tasks');
 }
 
 function express() {
   mkdirp('server');
-  this.sourceRoot(path.join(__dirname, 'templates/express'), this);
+  this.sourceRoot(__dirname + '/templates/express', this);
   this.directory('.', './server');
 }
 
 function test() {
   mkdirp('test');
-  this.sourceRoot(path.join(__dirname, 'templates/test'), this);
+  this.sourceRoot(__dirname + '/templates/test', this);
   this.directory('.', './test');
 }
 

@@ -43,16 +43,16 @@ function scaffolding() {
     }
   });
 
-    it('in ecma5', done => {
-      params.scriptType = 'es5';
-      helpers
-        .run(generator)
-        .withPrompts(params)
-        .on('end', assertion);
+  it('in ecma5', done => {
+    params.scriptType = 'es5';
+    helpers
+      .run(generator)
+      .withPrompts(params)
+      .on('end', assertion);
 
-      function assertion() {
-        assert.file(expectedFiles);
-        done();
-      }
+    function assertion() {
+      assert.file(expectedFiles);
+      done();
+    }
   });
 }

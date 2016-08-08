@@ -24,11 +24,12 @@ router
 	.put(api.users.update)
 	.delete(api.users.delete);
 
-router
-	.use(function (req, res) {
-		res.status(404).json({
-			message: 'resource not found :('
-		});
-	});
+router.use(resourceNotFound);
+
+function resourceNotFound(req, res) {
+  res.status(404).json({
+    message: 'resource not found :('
+  });
+}
 
 module.exports = router;

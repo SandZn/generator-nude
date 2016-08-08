@@ -31,16 +31,22 @@ app
   .use('/api', routes.api);
 
 mongoose.Promise = require('bluebird');
-mongoose.connect(config.database.url, function() {
-  server.listen(app.get('port'), function () {
-  	if (app.get('env') !== 'test') {
-	    console.log('> localhost:' + app.get('port'));
-  	}
-  });
-});
+mongoose.connect(config.database.url, startServer);
 
-mongoose.connection.on('error', function () {
+function startServer() {
+  server.listen(app.get('port'), logStartServer);
+
+  function logStartServer() {
+    if (app.get('env') !== 'test') {
+      console.log('> localhost:' + app.get('port'));
+    }
+  }
+}
+
+mongoose.connection.on('error', connectionError);
+
+function connectionError() {
   console.log('mongodb connection error');
-});
+}
 
 module.exports = app;
