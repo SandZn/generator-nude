@@ -16,17 +16,6 @@ function scaffolding() {
   var expectedFiles = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
 
   it('in ecma6', function (done) {
-    params.scriptType = 'es6';
-    helpers.run(generator).withPrompts(params).on('end', assertion);
-
-    function assertion() {
-      assert.file(expectedFiles);
-      done();
-    }
-  });
-
-  it('in ecma5', function (done) {
-    params.scriptType = 'es5';
     helpers.run(generator).withPrompts(params).on('end', assertion);
 
     function assertion() {

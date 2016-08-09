@@ -31,20 +31,6 @@ function scaffolding() {
   ];
 
   it('in ecma6', done => {
-    params.scriptType = 'es6';
-    helpers
-      .run(generator)
-      .withPrompts(params)
-      .on('end', assertion);
-
-    function assertion() {
-      assert.file(expectedFiles);
-      done();
-    }
-  });
-
-  it('in ecma5', done => {
-    params.scriptType = 'es5';
     helpers
       .run(generator)
       .withPrompts(params)

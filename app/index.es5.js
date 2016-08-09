@@ -4,15 +4,12 @@ var generators = require('yeoman-generator');
 var path = require('path');
 var slugify = require('underscore.string/slugify');
 var mkdirp = require('mkdirp');
-var babel = require('gulp-babel');
 var gulpif = require('gulp-if');
 
 module.exports = generators.Base.extend({
   constructor: constructor,
   appNameParam: appNameParam,
   appSecretParam: appSecretParam,
-  scriptTypeParam: scriptTypeParam,
-  setTranspile: setTranspile,
   common: common,
   gulp: gulp,
   express: express,
@@ -67,33 +64,6 @@ function appSecretParam() {
     _this2.appSecret = data.appSecret;
     done();
   });
-}
-
-function scriptTypeParam() {
-  var _this3 = this;
-
-  var done = this.async();
-  var prompt = {
-    type: 'list',
-    name: 'scriptType',
-    message: 'javascript is write in',
-    default: 'es6',
-    choices: ['es6', 'es5']
-  };
-
-  this.prompt(prompt, function (data) {
-    _this3.scriptType = data.scriptType;
-    done();
-  });
-}
-
-function setTranspile() {
-  if (this.scriptType === 'es5') {
-    var condition = function condition(file) {
-      return path.extname(file.path) === '.js';
-    };
-    this.registerTransformStream(gulpif(condition, babel()));
-  }
 }
 
 function common() {
