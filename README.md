@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/darlanmendonca/generator-nude/badge.svg?branch=master&service=github)](https://coveralls.io/github/darlanmendonca/generator-nude?branch=master)
 [![npm version](https://badge.fury.io/js/generator-nude.svg)](https://badge.fury.io/js/generator-nude)
 
-A simple generator (for Yeoman) to scaffolding Node.js API's, with Ecma Script 6.
+A simple generator (for Yeoman) to scaffolding Node.js API's, with Express.js and ecmaScript 6.
 
 ![API Illustration](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
 
@@ -12,7 +12,7 @@ A simple generator (for Yeoman) to scaffolding Node.js API's, with Ecma Script 6
 - automatically create Documentation (with [API Docs](http://apidocjs.com/))
 - Integration/E2e Tests (with [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Chai-http](http://chaijs.com/plugins/chai-http/))
 - Coverage Tests (with [Istambul](https://gotwarlost.github.io/istanbul/))
-- authentication with token (using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken))
+- authentication with jwt (using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken))
 
 
 ### Requirements
