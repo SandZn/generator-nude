@@ -13,7 +13,7 @@ function scaffolding() {
     appSecret: 'lorem'
   };
 
-  var expectedFiles = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'server', 'config.js', 'server/controllers.js', 'server/docs', 'gulpfile.js', 'server/middlewares.js', 'package.json', 'server/routers.js', 'test', 'tasks'];
+  var expectedFiles = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'app/docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks'];
 
   it('in ecma6', function (done) {
     helpers.run(generator).withPrompts(params).on('end', assertion);

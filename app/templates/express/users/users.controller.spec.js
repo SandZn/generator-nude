@@ -2,7 +2,7 @@
 'use strict';
 
 let helper = require('../../test/helper.js');
-let app = require('../app.js');
+let app = require('../index.js');
 let faker = require('faker');
 
 let chai = require('chai');

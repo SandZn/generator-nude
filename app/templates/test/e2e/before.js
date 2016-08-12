@@ -13,7 +13,7 @@ function mongooseConnect(done){
 }
 
 function createUser(done) {
-  let Users = require('../../server/users/users.model.js');
+  let Users = require('../../app/users/users.model.js');
   let user = new Users(helper.user);
   let jwt = require('jsonwebtoken');
 

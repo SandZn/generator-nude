@@ -2,7 +2,7 @@
 'use strict';
 
 let helper = require('../../test/helper.js');
-let app = require('../app.js');
+let app = require('../index.js');
 
 let chai = require('chai');
 chai.use(require('chai-http'));

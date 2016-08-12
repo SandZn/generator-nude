@@ -80,9 +80,9 @@ function gulp() {
 }
 
 function express() {
-  mkdirp('server');
+  mkdirp('app');
   this.sourceRoot(__dirname + '/templates/express', this);
-  this.directory('.', './server');
+  this.directory('.', './app');
 }
 
 function test() {
@@ -92,7 +92,7 @@ function test() {
 }
 
 function docs() {
-  mkdirp('server/docs');
+  mkdirp('app/docs');
 }
 
 function install() {

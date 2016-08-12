@@ -1,7 +1,7 @@
 /* global after */
 'use strict';
 
-let Users = require('../../server/users/users.model.js');
+let Users = require('../../app/users/users.model.js');
 
 after(removeUsers);
 
