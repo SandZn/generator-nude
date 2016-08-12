@@ -9,11 +9,11 @@ chai.use(require('chai-http'));
 let request = chai.request;
 let expect = chai.expect;
 
-describe('Auth', function() {
-	describe('.local - POST /api/auth', function() {
+describe('Authentication', function() {
+	describe('.local - POST /api/authentication', function() {
 		it('authentication failed', function(done) {
 			request(app)
-				.post('/api/auth')
+				.post('/api/authentication')
 				.set('token', helper.user.token)
 				.field('email', helper.user.email)
 				.field('password', helper.user.invalidPassword)
@@ -26,7 +26,7 @@ describe('Auth', function() {
 
 		it('authentication success', function(done) {
 			request(app)
-				.post('/api/auth')
+				.post('/api/authentication')
 				.set('token', helper.user.token)
 				.field('email', helper.user.email)
 				.field('password', helper.user.password)

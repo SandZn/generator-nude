@@ -1,11 +1,20 @@
 'use strict';
 
-let UsersController = {};
 let Users = require('./users.model.js');
 let ObjectId = require('mongoose').Types.ObjectId;
 let publicFields = '-__v -password';
 
-UsersController.list = function(req, res) {
+let UsersController = {
+  list,
+  single,
+  create,
+  update,
+  remove,
+}
+
+module.exports = UsersController;
+
+function list(req, res) {
 	/**
 	* @api {GET} /users/ list
 	* @apiDescription Get list of users
@@ -14,13 +23,11 @@ UsersController.list = function(req, res) {
 	* @apiPermission Authenticated
 	*/
   Users
-	.find({}, publicFields)
-	.then(function(users) {
-	  res.json(users);
-	});
+  	.find({}, publicFields)
+  	.then(users => res.json(users));
 };
 
-UsersController.get = function(req, res) {
+function single(req, res) {
 	/**
 	* @api {GET} /users/:id get
 	* @apiDescription Get data of a user
@@ -29,16 +36,16 @@ UsersController.get = function(req, res) {
 	* @apiPermission Authenticated
 	*/
   Users
-	.findOne({_id: new ObjectId(req.params.id)}, publicFields)
-	.then(function(user) {
-		let status = user ? 200 : 204;
-	  res
-	  	.status(status)
-	  	.json(user);
-	});
+  	.findOne({_id: new ObjectId(req.params.id)}, publicFields)
+  	.then(function(user) {
+  		let status = user ? 200 : 204;
+  	  res
+  	  	.status(status)
+  	  	.json(user);
+  	});
 };
 
-UsersController.create = function(req, res) {
+function create(req, res) {
 	/**
 	* @api {POST} /users create
 	* @apiDescription Create a new user
@@ -51,18 +58,17 @@ UsersController.create = function(req, res) {
 	*/
   let User = new Users(req.body);
   User
-	.save()
-	.then(function(user) {
-	  res.status(201).json({
-			id: user._id
-	  });
-	})
-	.catch(function(err) {
-	  res.status(400).json(err.errors);
-	});
+  	.save()
+  	.then(function(user) {
+      let id = user._id;
+  	  res.status(201).json({id});
+  	})
+  	.catch(function(err) {
+  	  res.status(400).json(err.errors);
+  	});
 };
 
-UsersController.update = function(req, res) {
+function update(req, res) {
 	/**
 	* @api {PUT} /users/:id update
 	* @apiDescription Update a user
@@ -71,21 +77,21 @@ UsersController.update = function(req, res) {
 	* @apiPermission Authenticated
 	*/
   Users
-	.findOne({_id: new ObjectId(req.params.id)})
-	.then(function(user) {
-		for (var key in req.body) {
-			user[key] = req.body[key];
-		}
+  	.findOne({_id: new ObjectId(req.params.id)})
+  	.then(function(user) {
+  		for (var key in req.body) {
+  			user[key] = req.body[key];
+  		}
 
-		user
-			.save()
-			.then(function() {
-			  res.status(204).json();
-			});
-	});
+  		user
+  			.save()
+  			.then(function() {
+  			  res.status(204).json();
+  			});
+  	});
 };
 
-UsersController.delete = function(req, res) {
+function remove(req, res) {
 	/**
 	* @api {DELETE} /users/:id delete
 	* @apiDescription Delete a user
@@ -94,10 +100,10 @@ UsersController.delete = function(req, res) {
 	* @apiPermission Authenticated
 	*/
   Users
-	.findByIdAndRemove(req.params.id)
-	.then(function() {
-	  res.status(204).json();
-	});
+  	.findByIdAndRemove(req.params.id)
+  	.then(function() {
+  	  res.status(204).json();
+  	});
 };
 
-module.exports = UsersController;
+

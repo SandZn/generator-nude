@@ -1,12 +1,17 @@
 'use strict';
 
-module.exports = function(req, res, next, value) {
+module.exports = validateId;
+
+function validateId (req, res, next, value) {
   let reg = /^[0-9a-fA-F]{24}$/;
-  let validId = reg.test(value);
-  if (!validId) {
-    return res.status(400).json({
-      message: 'invalid id'
-    });
+  let valid = reg.test(value);
+
+  if (!valid) {
+    let message = 'invalid id';
+    return res
+      .status(400)
+      .json({message});
   }
+
   next();
 };

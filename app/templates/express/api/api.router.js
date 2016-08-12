@@ -8,8 +8,8 @@ let router = express.Router();
 router.param('id', middlewares.id);
 
 router
-	.route('/auth')
-	.post(api.auth.local);
+	.route('/authentication')
+	.post(api.authentication.local);
 
 router.use(middlewares.token);
 
@@ -20,16 +20,17 @@ router
 
 router
 	.route('/users/:id')
-	.get(api.users.get)
+	.get(api.users.single)
 	.put(api.users.update)
 	.delete(api.users.delete);
 
 router.use(resourceNotFound);
 
 function resourceNotFound(req, res) {
-  res.status(404).json({
-    message: 'resource not found :('
-  });
+  let message = 'resource not found :(';
+  res
+    .status(404)
+    .json({message});
 }
 
 module.exports = router;

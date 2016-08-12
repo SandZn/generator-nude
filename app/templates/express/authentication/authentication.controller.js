@@ -1,15 +1,18 @@
 'use strict';
 
-let AuthController = {};
 let Users = require('../users/users.model.js');
 let config = require('../../config');
 let jwt = require('jsonwebtoken');
 let encode = require('../encode/encode.helper.js');
 let publicFields = '-__v -password';
 
-AuthController.local = function(req, res) {
+let AuthenticationController = {local};
+
+module.exports = AuthenticationController;
+
+function local(req, res) {
 	/**
-		* @api {POST} /auth local
+		* @api {POST} /authentication local
 		* @apiDescription Authentication user with local strategy
 		* @apiName local
 		* @apiGroup Auth
@@ -23,16 +26,18 @@ AuthController.local = function(req, res) {
 		.findOne({email: req.body.email, password: password}, publicFields)
 		.then(function(user) {
 			if (!user) {
-				return res.status(401).json({
-					message: 'authentication failed'
-				});
+        let message = 'authentication failed';
+				return res
+          .status(401)
+          .json({message});
 			}
 
+      let id = user.id;
+      let token = jwt.sign(user, config.secret, config.token);
+
 			res.json({
-				id: user._id,
-				token: jwt.sign(user, config.secret, config.token)
-			});
+        id,
+        token,
+      });
 		});
 };
-
-module.exports = AuthController;
