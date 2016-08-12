@@ -1,7 +1,7 @@
 'use strict';
 
 var api = {
-	authentication: require('./auth/authentication.controller.js'),
+	authentication: require('./authentication/authentication.controller.js'),
 	users: require('./users/users.controller.js'),
 };
 
