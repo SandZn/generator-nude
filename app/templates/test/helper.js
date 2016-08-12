@@ -7,7 +7,6 @@ module.exports = {
   API: `http://localhost:${config.server.port}/api`,
 
   user: {
-    test: true,
     firstname: faker.name.firstName(),
     lastname: faker.name.lastName(),
     email: faker.internet.email(),

@@ -7,7 +7,7 @@ after(removeUsers);
 
 function removeUsers(done) {
   Users
-    .remove({test: true})
+    .remove({})
     .then(function() {
       done();
     });
