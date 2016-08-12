@@ -2,6 +2,7 @@
   "name": "<%= appName %>",
   "version": "1.0.0",
   "private": true,
+  "main": "app/index.js",
   "scripts": {
     "start": "nodemon --quiet server/app.js --env 'development'",
     "test": "scripts/test"
