@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+nodemon --quiet app/index.js --env 'development'
