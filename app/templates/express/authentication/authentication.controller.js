@@ -2,7 +2,9 @@
 
 let Users = require('../users/users.model.js');
 let config = require('../../config');
+let bluebird = require('bluebird');
 let jwt = require('jsonwebtoken');
+jwt = bluebird.promisifyAll(jwt);
 let encode = require('../encode/encode.helper.js');
 let publicFields = '-__v -password';
 
@@ -22,8 +24,10 @@ function local(req, res) {
     * @apiParam {String} password password of user
     */
   let password = encode(req.body.password);
+  let email = req.body.email;
+
   Users
-    .findOne({email: req.body.email, password: password}, publicFields)
+    .findOne({email, password}, publicFields)
     .then(function(user) {
       if (!user) {
         let message = 'authentication failed';
@@ -39,5 +43,6 @@ function local(req, res) {
         id,
         token,
       });
+
     });
 };
