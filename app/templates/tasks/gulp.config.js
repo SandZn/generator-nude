@@ -3,6 +3,6 @@
 module.exports = {
   lint: [
     './gulpfile.js',
-    './test/**/*.js'
+    './test/**/*.js',
   ]
 };

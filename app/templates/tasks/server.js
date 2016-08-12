@@ -2,7 +2,7 @@
 
 let gulp = require('gulp');
 
-gulp.task('nodemon', function(cb) {
+gulp.task('nodemon', function(callback) {
 	let nodemon = require('gulp-nodemon');
 
 	let options = {
@@ -10,20 +10,21 @@ gulp.task('nodemon', function(cb) {
 		quiet: true,
 		ext: 'js',
 		ignore: [
-			'app/docs'
+			'app/docs',
 		],
 		env: {
-			ENV: 'development'
-		}
+			ENV: 'development',
+		},
 	};
 
 	let started = false;
 
-	nodemon(options)
-	.on('start', function() {
-		if (!started){
-			cb();
-			started = true;
-		}
-	});
+	nodemon(options).on('start', setStartedStatus);
+
+  function setStartedStatus() {
+    if (!started){
+      callback();
+      started = true;
+    }
+  }
 });

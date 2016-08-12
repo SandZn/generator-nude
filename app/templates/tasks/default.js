@@ -6,7 +6,7 @@ let tasks = [
 	'apiDocs',
 	'nodemon',
 	'lint',
-	'watch'
+	'watch',
 ];
 
 gulp.task('default', tasks);
