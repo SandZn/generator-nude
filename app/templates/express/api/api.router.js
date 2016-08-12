@@ -8,21 +8,21 @@ let router = express.Router();
 router.param('id', middlewares.id);
 
 router
-	.route('/authentication')
-	.post(api.authentication.local);
+  .route('/authentication')
+  .post(api.authentication.local);
 
 router.use(middlewares.token);
 
 router
-	.route('/users')
-	.get(api.users.list)
-	.post(api.users.create);
+  .route('/users')
+  .get(api.users.list)
+  .post(api.users.create);
 
 router
-	.route('/users/:id')
-	.get(api.users.single)
-	.put(api.users.update)
-	.delete(api.users.delete);
+  .route('/users/:id')
+  .get(api.users.single)
+  .put(api.users.update)
+  .delete(api.users.remove);
 
 router.use(resourceNotFound);
 
