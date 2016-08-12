@@ -20,19 +20,20 @@ function validateToken(req, res, next) {
   }
 
   jwt.verify(token, config.secret, statusToken);
-}
 
-function statusToken(err, token) {
-  if (err) {
-    let message = 'invalid token';
-    return res
-      .status(401)
-      .json({message});
+  function statusToken(err, token) {
+    if (err) {
+      let message = 'invalid token';
+      return res
+        .status(401)
+        .json({message});
+    }
+
+    req.decoded = token;
+    return token;
   }
-
-  req.decoded = token;
-  return token;
 }
+
 
 function invalidToken(err) {
   let message = 'invalid token';
