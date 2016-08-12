@@ -12,6 +12,8 @@ let options = {
 	includeFilters: ['\\.js$']
 };
 
-gulp.task('apiDocs', function(done) {
-	apiDoc(options, done);
-});
+gulp.task('apiDocs', apiDocsTask);
+
+function apiDocsTask(done) {
+  apiDoc(options, done);
+}
