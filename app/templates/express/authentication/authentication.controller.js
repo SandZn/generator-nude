@@ -11,33 +11,33 @@ let AuthenticationController = {local};
 module.exports = AuthenticationController;
 
 function local(req, res) {
-	/**
-		* @api {POST} /authentication local
-		* @apiDescription Authentication user with local strategy
-		* @apiName local
-		* @apiGroup Auth
-		* @apiPermission Public
-		*
-		* @apiParam {String} email email of user
-		* @apiParam {String} password password of user
-		*/
-	let password = encode(req.body.password);
-	Users
-		.findOne({email: req.body.email, password: password}, publicFields)
-		.then(function(user) {
-			if (!user) {
+  /**
+    * @api {POST} /authentication local
+    * @apiDescription Authentication user with local strategy
+    * @apiName local
+    * @apiGroup Auth
+    * @apiPermission Public
+    *
+    * @apiParam {String} email email of user
+    * @apiParam {String} password password of user
+    */
+  let password = encode(req.body.password);
+  Users
+    .findOne({email: req.body.email, password: password}, publicFields)
+    .then(function(user) {
+      if (!user) {
         let message = 'authentication failed';
-				return res
+        return res
           .status(401)
           .json({message});
-			}
+      }
 
       let id = user.id;
       let token = jwt.sign(user, config.secret, config.token);
 
-			res.json({
+      res.json({
         id,
         token,
       });
-		});
+    });
 };
