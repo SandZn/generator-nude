@@ -3,7 +3,7 @@
 let bluebird = require('bluebird');
 let jwt = require('jsonwebtoken');
 let config = require('../../config');
-// jwt = bluebird.promisifyAll(jwt);
+jwt = bluebird.promisifyAll(jwt);
 
 module.exports = validateToken;
 
@@ -12,37 +12,23 @@ function validateToken(req, res, next) {
     || req.body.token
     || req.query.token;
 
-  if (!token) {
-    let message = 'no token provided';
+  jwt
+    .verifyAsync(token, config.secret)
+    .then(decodeToken)
+    .catch(invalidToken);
+
+  function decodeToken(err, token) {
+    req.decoded = token;
+    next();
+  }
+
+  function invalidToken(err) {
+    let message = !token
+      ? 'no token provided'
+      : 'invalid token';
+
     return res
       .status(401)
       .json({message});
   }
-
-  jwt.verify(token, config.secret, statusToken);
-
-  function statusToken(err, token) {
-    if (err) {
-      let message = 'invalid token';
-      return res
-        .status(401)
-        .json({message});
-    }
-
-    req.decoded = token;
-    return token;
-  }
-}
-
-
-function invalidToken(err) {
-  let message = 'invalid token';
-  return res
-    .status(401)
-    .json({message});
-}
-
-function decodeToken(token) {
-  req.decoded = token;
-  return token;
 }
