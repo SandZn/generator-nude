@@ -1,7 +1,7 @@
 {
   "name": "generator-nude",
   "version": "0.1.0",
-  "description": "A simple generator (for Yeoman) to scaffolding Node.js API's",
+  "description": "A simple generator (for Yeoman) to scaffolding Node.js API's, with Express.js and ecmaScript 6.",
   "main": "app/index.es5.js",
   "scripts": {
     "transpile": "scripts/transpile",
@@ -17,7 +17,8 @@
     "expess.js",
     "hapi.js",
     "api",
-    "yeoman-generator"
+    "yeoman-generator",
+    "node"
   ],
   "author": "Darlan Mendonça <darlanmendonca@gmail.com> (https://github.com/darlanmendonca)",
   "license": "MIT",
