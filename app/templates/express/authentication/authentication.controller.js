@@ -2,7 +2,6 @@
 
 let Users = require('../users/users.model.js');
 let config = require('../../config');
-let bluebird = require('bluebird');
 let jwt = require('jsonwebtoken');
 let encode = require('../encode/encode.helper.js');
 let publicFields = '-__v -password';
