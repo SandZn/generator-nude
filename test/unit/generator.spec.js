@@ -8,37 +8,39 @@ const generator = `${process.env.PWD}/app/index.es5.js`;
 describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
-  let params = {
+  const params = {
     appName: 'lorem',
     appSecret: 'lorem',
   };
 
-  const expectedFiles = [
-    '.editorconfig',
-    '.gitignore',
-    '.eslintrc.js',
-    'README.md',
-    'app',
-    'config.js',
-    'app/controllers.js',
-    'app/docs',
-    'gulpfile.js',
-    'app/middlewares.js',
-    'package.json',
-    'app/routers.js',
-    'test',
-    'tasks',
-  ];
-
-  it('in ecma6', done => {
+  it('files', done => {
     helpers
       .run(generator)
       .withPrompts(params)
-      .on('end', assertion);
+      .toPromise()
+      .then(assertionFiles);
 
-    function assertion() {
-      assert.file(expectedFiles);
+    function assertionFiles() {
+      assert.file([
+        '.editorconfig',
+        '.gitignore',
+        '.eslintrc.js',
+        'README.md',
+        'app',
+        'config.js',
+        'app/controllers.js',
+        'app/docs',
+        'gulpfile.js',
+        'app/middlewares.js',
+        'package.json',
+        'app/routers.js',
+        'test',
+        'tasks',
+      ]);
+
       done();
     }
   });
 }
+
+

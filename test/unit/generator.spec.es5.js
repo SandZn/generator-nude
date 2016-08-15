@@ -13,13 +13,12 @@ function scaffolding() {
     appSecret: 'lorem'
   };
 
-  var expectedFiles = ['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'app/docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks'];
+  it('files', function (done) {
+    helpers.run(generator).withPrompts(params).toPromise().then(assertionFiles);
 
-  it('in ecma6', function (done) {
-    helpers.run(generator).withPrompts(params).on('end', assertion);
+    function assertionFiles() {
+      assert.file(['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'app/docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks']);
 
-    function assertion() {
-      assert.file(expectedFiles);
       done();
     }
   });
