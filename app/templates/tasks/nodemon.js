@@ -12,7 +12,7 @@ function nodemonTask(callback) {
     quiet: true,
     ext: 'js',
     ignore: [
-      'app/docs',
+      './docs',
     ],
     env: {
       ENV: 'development',
