@@ -98,7 +98,7 @@ describe('Users', function() {
   describe('.single - GET /api/users/:id', function() {
     it('no token provided', function(done) {
       request(app)
-        .get('/api/users/'+helper.user._id)
+        .get(`/api/users/${helper.user._id}`)
         .then(function(res) {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.have.property('message', 'no token provided');
@@ -108,7 +108,7 @@ describe('Users', function() {
 
     it('invalid token', function(done) {
       request(app)
-        .get('/api/users/'+helper.user._id+'?token='+helper.user.invalidToken)
+        .get(`/api/users/${helper.user._id}?token=${helper.user.invalidToken}`)
         .then(function(res) {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.have.property('message', 'invalid token');
@@ -118,7 +118,7 @@ describe('Users', function() {
 
     it('not found', function(done) {
       request(app)
-        .get('/api/users/'+helper.user._id.toString().replace(/^.{2}/, 'dd'))
+        .get(`/api/users/${helper.user._id.toString().replace(/^.{2}/, 'dd')}`)
         .set('token', helper.user.token)
         .then(function(res) {
           expect(res.statusCode).to.equal(204);
@@ -140,7 +140,7 @@ describe('Users', function() {
 
     it('get an user', function(done) {
       request(app)
-        .get('/api/users/'+helper.user._id.toString())
+        .get(`/api/users/${helper.user._id.toString()}`)
         .set('token', helper.user.token)
         .then(function(res) {
           expect(res.statusCode).to.equal(200);
@@ -157,7 +157,7 @@ describe('Users', function() {
   describe('.update - PUT /api/users/:id', function() {
     it('no token provided', function(done) {
       request(app)
-        .put('/api/users/'+helper.user._id)
+        .put(`/api/users/${helper.user._id}`)
         .then(function(res) {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.have.property('message', 'no token provided');
@@ -167,7 +167,7 @@ describe('Users', function() {
 
     it('invalid token', function(done) {
       request(app)
-        .put('/api/users/'+helper.user._id)
+        .put(`/api/users/${helper.user._id}`)
         .field('token', helper.user.invalidToken)
         .then(function(res) {
           expect(res.statusCode).to.equal(401);
@@ -178,7 +178,7 @@ describe('Users', function() {
 
     it('update an user', function(done) {
       request(app)
-        .put('/api/users/'+helper.user._id)
+        .put(`/api/users/${helper.user._id}`)
         .set('token', helper.user.token)
         .field('email', 'darlanmendonca@gmail.com')
         .then(function(res) {
@@ -192,7 +192,7 @@ describe('Users', function() {
   describe('.delete - DELETE /api/users/:id', function() {
     it('no token provided', function(done) {
       request(app)
-        .delete('/api/users/'+helper.user._id)
+        .delete(`/api/users/${helper.user._id}`)
         .then(function(res) {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.have.property('message', 'no token provided');
@@ -202,7 +202,7 @@ describe('Users', function() {
 
     it('invalid token', function(done) {
       request(app)
-        .delete('/api/users/'+helper.user._id)
+        .delete(`/api/users/${helper.user._id}`)
         .field('token', helper.user.invalidToken)
         .then(function(res) {
           expect(res.statusCode).to.equal(401);
@@ -213,7 +213,7 @@ describe('Users', function() {
 
     it('delete an user', function(done) {
       request(app)
-        .delete('/api/users/'+helper.user._id)
+        .delete(`/api/users/${helper.user._id}`)
         .set('token', helper.user.token)
         .then(function(res) {
           expect(res.statusCode).to.equal(204);

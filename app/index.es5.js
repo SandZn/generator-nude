@@ -92,7 +92,7 @@ function test() {
 }
 
 function docs() {
-  mkdirp('app/docs');
+  mkdirp('docs');
 }
 
 function install() {

@@ -17,7 +17,7 @@ function scaffolding() {
     helpers.run(generator).withPrompts(params).toPromise().then(assertionFiles);
 
     function assertionFiles() {
-      assert.file(['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'app/docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks']);
+      assert.file(['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks']);
 
       done();
     }

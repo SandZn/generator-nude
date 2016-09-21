@@ -17,12 +17,12 @@ function validateToken(req, res, next) {
     .then(decodeToken)
     .catch(invalidToken);
 
-  function decodeToken(err, token) {
+  function decodeToken(token) {
     req.decoded = token;
     next();
   }
 
-  function invalidToken(err) {
+  function invalidToken() {
     let message = !token
       ? 'no token provided'
       : 'invalid token';

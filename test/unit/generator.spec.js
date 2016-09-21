@@ -29,7 +29,7 @@ function scaffolding() {
         'app',
         'config.js',
         'app/controllers.js',
-        'app/docs',
+        'docs',
         'gulpfile.js',
         'app/middlewares.js',
         'package.json',
@@ -42,5 +42,3 @@ function scaffolding() {
     }
   });
 }
-
-

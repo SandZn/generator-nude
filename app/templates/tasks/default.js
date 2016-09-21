@@ -3,10 +3,10 @@
 let gulp = require('gulp');
 
 let tasks = [
-	'apiDocs',
-	'nodemon',
-	'lint',
-	'watch',
+  'apiDocs',
+  'nodemon',
+  'lint',
+  'watch',
 ];
 
 gulp.task('default', tasks);

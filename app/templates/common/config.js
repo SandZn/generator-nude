@@ -7,12 +7,12 @@ let config = {
       proxy: 5000,
     },
     database: {
-      url: 'mongodb://localhost/<%= slugify(appName) %>'
+      url: 'mongodb://localhost/<%= slugify(appName) %>',
     },
     secret: '<%= appSecret %>',
     token: {
       expiresIn: 1440, // 24 hours
-    }
+    },
   },
   production: {
     server: {
@@ -20,12 +20,12 @@ let config = {
       proxy: 5000,
     },
     database: {
-      url: 'mongodb://localhost/<%= slugify(appName) %>'
+      url: 'mongodb://localhost/<%= slugify(appName) %>',
     },
     secret: '<%= appSecret %>',
     token: {
       expiresIn: 1440, // 24 hours
-    }
+    },
   },
   test: {
     server: {
@@ -33,13 +33,13 @@ let config = {
       proxy: 5005,
     },
     database: {
-      url: 'mongodb://localhost/<%= slugify(appName) %>'
+      url: 'mongodb://localhost/<%= slugify(appName) %>',
     },
     secret: '<%= appSecret %>',
     token: {
       expiresIn: 1440, // 24 hours
     },
-  }
+  },
 };
 
 let shell = require('shell-arguments');

@@ -10,7 +10,7 @@ let UsersController = {
   create,
   update,
   remove,
-}
+};
 
 module.exports = UsersController;
 

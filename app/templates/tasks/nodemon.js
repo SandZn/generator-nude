@@ -1,18 +1,18 @@
 'use strict';
 
 let gulp = require('gulp');
+let nodemon = require('gulp-nodemon');
 
 gulp.task('nodemon', nodemonTask);
 
 function nodemonTask(callback) {
-  let nodemon = require('gulp-nodemon');
 
   let options = {
     script: 'app/index.js',
     quiet: true,
     ext: 'js',
     ignore: [
-      'app/docs',
+      './docs',
     ],
     env: {
       ENV: 'development',

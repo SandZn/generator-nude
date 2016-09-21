@@ -5,11 +5,11 @@ let apiDoc = require('gulp-apidoc');
 
 let options = {
   src: 'app/',
-  dest: 'app/docs',
+  dest: './docs',
   debug: true,
   // parse: true,
   silent: true,
-  includeFilters: ['\\.js$']
+  includeFilters: ['\\.js$'],
 };
 
 gulp.task('apiDocs', apiDocsTask);
