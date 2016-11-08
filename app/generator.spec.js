@@ -8,7 +8,7 @@ describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
   const params = {
-    appName: 'lorem',
+    applicationName: 'lorem',
     appSecret: 'lorem',
   };
 

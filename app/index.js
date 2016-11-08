@@ -6,10 +6,6 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
-var _slugify = require('underscore.string/slugify');
-
-var _slugify2 = _interopRequireDefault(_slugify);
-
 var _mkdirp = require('mkdirp');
 
 var _mkdirp2 = _interopRequireDefault(_mkdirp);
@@ -18,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 module.exports = _yeomanGenerator.Base.extend({
   constructor: constructor,
-  appNameParam: appNameParam,
+  applicationNameParam: applicationNameParam,
   appSecretParam: appSecretParam,
   common: common,
   gulp: gulp,
@@ -30,29 +26,22 @@ module.exports = _yeomanGenerator.Base.extend({
 
 function constructor() {
   _yeomanGenerator.Base.apply(this, arguments);
-  this.slugify = _slugify2.default;
-
-  this.argument('appName', {
-    desc: 'create an app with name [appName]',
-    type: Boolean,
-    required: false,
-    defaults: _path2.default.basename(process.cwd())
-  });
 }
 
-function appNameParam() {
+function applicationNameParam() {
   var _this = this;
 
   var done = this.async();
   var prompt = {
     type: 'input',
-    name: 'appName',
+    name: 'applicationName',
     message: 'application name',
-    default: this.appName
+    default: _path2.default.basename(process.cwd())
   };
 
   this.prompt(prompt, function (data) {
-    _this.appName = data.appName;
+    _this.applicationName = data.applicationName;
+    _this.applicationSlug = require('underscore.string/slugify')(_this.applicationName);
     done();
   });
 }

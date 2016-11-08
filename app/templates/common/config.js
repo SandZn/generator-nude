@@ -5,7 +5,7 @@ let config = {
       proxy: 5000,
     },
     database: {
-      url: 'mongodb://localhost/<%= slugify(appName) %>',
+      url: 'mongodb://localhost/<%= applicationName %>',
     },
     secret: '<%= appSecret %>',
     token: {
@@ -18,7 +18,7 @@ let config = {
       proxy: 5000,
     },
     database: {
-      url: 'mongodb://localhost/<%= slugify(appName) %>',
+      url: 'mongodb://localhost/<%= applicationName %>',
     },
     secret: '<%= appSecret %>',
     token: {
@@ -31,7 +31,7 @@ let config = {
       proxy: 5005,
     },
     database: {
-      url: 'mongodb://localhost/<%= slugify(appName) %>',
+      url: 'mongodb://localhost/<%= applicationName %>',
     },
     secret: '<%= appSecret %>',
     token: {

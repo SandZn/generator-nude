@@ -20,7 +20,7 @@ describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
   var params = {
-    appName: 'lorem',
+    applicationName: 'lorem',
     appSecret: 'lorem'
   };
 

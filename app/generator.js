@@ -1,11 +1,10 @@
 import {Base as yeoman} from 'yeoman-generator';
 import path from 'path';
-import slugify from 'underscore.string/slugify';
 import mkdirp from 'mkdirp';
 
 module.exports = yeoman.extend({
   constructor,
-  appNameParam,
+  applicationNameParam,
   appSecretParam,
   common,
   gulp,
@@ -17,27 +16,20 @@ module.exports = yeoman.extend({
 
 function constructor() {
   yeoman.apply(this, arguments);
-  this.slugify = slugify;
-
-  this.argument('appName', {
-    desc: 'create an app with name [appName]',
-    type: Boolean,
-    required: false,
-    defaults: path.basename(process.cwd()),
-  });
 }
 
-function appNameParam() {
+function applicationNameParam() {
   let done = this.async();
   let prompt = {
     type: 'input',
-    name: 'appName',
+    name: 'applicationName',
     message: 'application name',
-    default: this.appName,
+    default: path.basename(process.cwd()),
   };
 
   this.prompt(prompt, data => {
-    this.appName = data.appName;
+    this.applicationName = data.applicationName;
+    this.applicationSlug = require('underscore.string/slugify')(this.applicationName);
     done();
   });
 }
