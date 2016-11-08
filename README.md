@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/darlanmendonca/generator-nude/badge.svg?branch=master&service=github)](https://coveralls.io/github/darlanmendonca/generator-nude?branch=master)
 [![npm version](https://badge.fury.io/js/generator-nude.svg)](https://badge.fury.io/js/generator-nude)
 
-A simple generator (for Yeoman) to scaffolding Node.js API's, with Express.js and ecmaScript 6.
+A generator to scaffolding HTTP API's, with Express.js and es6
 
 ![API Illustration](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
 
