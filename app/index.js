@@ -16,6 +16,7 @@ module.exports = _yeomanGenerator.Base.extend({
   constructor: constructor,
   applicationNameParam: applicationNameParam,
   appSecretParam: appSecretParam,
+  saveParams: saveParams,
   common: common,
   gulp: gulp,
   express: express,
@@ -62,6 +63,16 @@ function appSecretParam() {
   this.prompt(prompt, function (data) {
     _this2.appSecret = data.appSecret;
     done();
+  });
+}
+
+function saveParams() {
+  var applicationName = this.applicationName;
+  var applicationSlug = this.applicationSlug;
+
+  this.config.set({
+    applicationName: applicationName,
+    applicationSlug: applicationSlug
   });
 }
 

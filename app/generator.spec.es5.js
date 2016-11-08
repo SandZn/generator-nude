@@ -28,7 +28,7 @@ function scaffolding() {
     _yeomanTest2.default.run(generator).withPrompts(params).toPromise().then(assertionFiles);
 
     function assertionFiles() {
-      _yeomanAssert2.default.file(['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks']);
+      _yeomanAssert2.default.file(['.editorconfig', '.gitignore', '.eslintrc.js', '.yo-rc.json', 'README.md', 'app', 'config.js', 'app/controllers.js', 'docs', 'gulpfile.babel.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks']);
 
       done();
     }
