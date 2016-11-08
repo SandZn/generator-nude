@@ -1,6 +1,8 @@
-const helpers = require('yeoman-test');
-const assert = require('yeoman-assert');
-const generator = `${process.env.PWD}/app/index.es5.js`;
+import test from 'yeoman-test';
+import assert from 'yeoman-assert';
+import packageJSON from '../package.json';
+
+const generator = `${process.env.PWD}/${packageJSON.main}`;
 
 describe('generate a scaffolding', scaffolding);
 
@@ -11,7 +13,7 @@ function scaffolding() {
   };
 
   it('files', done => {
-    helpers
+    test
       .run(generator)
       .withPrompts(params)
       .toPromise()

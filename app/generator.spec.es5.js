@@ -1,8 +1,20 @@
 'use strict';
 
-var helpers = require('yeoman-test');
-var assert = require('yeoman-assert');
-var generator = process.env.PWD + '/app/index.es5.js';
+var _yeomanTest = require('yeoman-test');
+
+var _yeomanTest2 = _interopRequireDefault(_yeomanTest);
+
+var _yeomanAssert = require('yeoman-assert');
+
+var _yeomanAssert2 = _interopRequireDefault(_yeomanAssert);
+
+var _package = require('../package.json');
+
+var _package2 = _interopRequireDefault(_package);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var generator = process.env.PWD + '/' + _package2.default.main;
 
 describe('generate a scaffolding', scaffolding);
 
@@ -13,10 +25,10 @@ function scaffolding() {
   };
 
   it('files', function (done) {
-    helpers.run(generator).withPrompts(params).toPromise().then(assertionFiles);
+    _yeomanTest2.default.run(generator).withPrompts(params).toPromise().then(assertionFiles);
 
     function assertionFiles() {
-      assert.file(['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks']);
+      _yeomanAssert2.default.file(['.editorconfig', '.gitignore', '.eslintrc.js', 'README.md', 'app', 'config.js', 'app/controllers.js', 'docs', 'gulpfile.js', 'app/middlewares.js', 'package.json', 'app/routers.js', 'test', 'tasks']);
 
       done();
     }

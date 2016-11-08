@@ -1,9 +1,9 @@
-let generators = require('yeoman-generator');
-let path = require('path');
-let slugify = require('underscore.string/slugify');
-let mkdirp = require('mkdirp');
+import {Base as yeoman} from 'yeoman-generator';
+import path from 'path';
+import slugify from 'underscore.string/slugify';
+import mkdirp from 'mkdirp';
 
-module.exports = generators.Base.extend({
+module.exports = yeoman.extend({
   constructor,
   appNameParam,
   appSecretParam,
@@ -16,7 +16,7 @@ module.exports = generators.Base.extend({
 });
 
 function constructor() {
-  generators.Base.apply(this, arguments);
+  yeoman.apply(this, arguments);
   this.slugify = slugify;
 
   this.argument('appName', {

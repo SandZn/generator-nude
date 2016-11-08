@@ -1,11 +1,22 @@
 'use strict';
 
-var generators = require('yeoman-generator');
-var path = require('path');
-var slugify = require('underscore.string/slugify');
-var mkdirp = require('mkdirp');
+var _yeomanGenerator = require('yeoman-generator');
 
-module.exports = generators.Base.extend({
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _slugify = require('underscore.string/slugify');
+
+var _slugify2 = _interopRequireDefault(_slugify);
+
+var _mkdirp = require('mkdirp');
+
+var _mkdirp2 = _interopRequireDefault(_mkdirp);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = _yeomanGenerator.Base.extend({
   constructor: constructor,
   appNameParam: appNameParam,
   appSecretParam: appSecretParam,
@@ -18,14 +29,14 @@ module.exports = generators.Base.extend({
 });
 
 function constructor() {
-  generators.Base.apply(this, arguments);
-  this.slugify = slugify;
+  _yeomanGenerator.Base.apply(this, arguments);
+  this.slugify = _slugify2.default;
 
   this.argument('appName', {
     desc: 'create an app with name [appName]',
     type: Boolean,
     required: false,
-    defaults: path.basename(process.cwd())
+    defaults: _path2.default.basename(process.cwd())
   });
 }
 
@@ -79,19 +90,19 @@ function gulp() {
 }
 
 function express() {
-  mkdirp('app');
+  (0, _mkdirp2.default)('app');
   this.sourceRoot(__dirname + '/templates/express', this);
   this.directory('.', './app');
 }
 
 function test() {
-  mkdirp('test');
+  (0, _mkdirp2.default)('test');
   this.sourceRoot(__dirname + '/templates/test', this);
   this.directory('.', './test');
 }
 
 function docs() {
-  mkdirp('docs');
+  (0, _mkdirp2.default)('docs');
 }
 
 function install() {
