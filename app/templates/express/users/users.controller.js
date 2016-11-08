@@ -1,5 +1,3 @@
-'use strict';
-
 let Users = require('./users.model.js');
 let ObjectId = require('mongoose').Types.ObjectId;
 let publicFields = '-__v -password';

@@ -1,5 +1,3 @@
-'use strict';
-
 const helpers = require('yeoman-test');
 const assert = require('yeoman-assert');
 const generator = `${process.env.PWD}/app/index.es5.js`;

@@ -1,5 +1,3 @@
-'use strict';
-
 let api = require('../controllers.js').api;
 let middlewares = require('../middlewares.js');
 let express = require('express');

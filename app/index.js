@@ -1,5 +1,3 @@
-'use strict';
-
 let generators = require('yeoman-generator');
 let path = require('path');
 let slugify = require('underscore.string/slugify');

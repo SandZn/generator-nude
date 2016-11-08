@@ -1,5 +1,3 @@
-'use strict';
-
 let Users = require('../users/users.model.js');
 let config = require('../../config');
 let jwt = require('jsonwebtoken');

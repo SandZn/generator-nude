@@ -1,5 +1,3 @@
-'use strict';
-
 let mongoose = require('mongoose');
 let encode = require('../encode/encode.helper.js');
 

@@ -1,5 +1,3 @@
-'use strict';
-
 let bluebird = require('bluebird');
 let jwt = require('jsonwebtoken');
 let config = require('../../config');

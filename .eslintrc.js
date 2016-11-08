@@ -1,9 +1,10 @@
-'use strict';
-
 let optional = 1;
 let required = 2;
 
 module.exports = {
+  parserOptions: {
+    sourceType: 'module',
+  },
   env: {
     node: true,
     es6: true,
@@ -43,5 +44,5 @@ module.exports = {
     'keyword-spacing': required,
     'key-spacing': [required, {afterColon: true}],
     'space-unary-ops': required,
-  },
+  }
 };
