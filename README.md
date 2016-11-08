@@ -4,15 +4,13 @@
 
 A generator to scaffolding HTTP API's, with Express.js and es6
 
-![API Illustration](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
-
 ### Offers
 
-- lint scripts (with [ESLint](http://eslint.org/))
-- automatically create Documentation (with [API Docs](http://apidocjs.com/))
-- Integration/E2e Tests (with [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Chai-http](http://chaijs.com/plugins/chai-http/))
-- Coverage Tests (with [Istambul](https://gotwarlost.github.io/istanbul/))
 - authentication with jwt (using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken))
+- lint scripts (with [ESLint](http://eslint.org/))
+- auto documentation (with [API Docs](http://apidocjs.com/))
+- automated tests (with [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Chai-http](http://chaijs.com/plugins/chai-http/))
+- coverage tests (with [Istambul](https://gotwarlost.github.io/istanbul/))
 
 
 ### Requirements
@@ -48,9 +46,8 @@ After install dependencies, running your project using default task on Gulp, run
 gulp
 ```
 
+and to run tests
 
-#### License
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Darlan Mendonça
+```sh
+npm test
+```
