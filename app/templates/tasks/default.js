@@ -1,10 +1,8 @@
-let gulp = require('gulp');
+import gulp from 'gulp';
 
-let tasks = [
+gulp.task('default', [
   'apiDocs',
   'nodemon',
   'lint',
   'watch',
-];
-
-gulp.task('default', tasks);
+]);

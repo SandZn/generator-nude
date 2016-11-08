@@ -1,14 +1,6 @@
-let gulp = require('gulp');
-let apiDoc = require('gulp-apidoc');
-
-let options = {
-  src: 'app/',
-  dest: './docs',
-  debug: true,
-  // parse: true,
-  silent: true,
-  includeFilters: ['\\.js$'],
-};
+import gulp from 'gulp';
+import apiDoc from 'gulp-apidoc';
+import {apiDocs as options} from './config.js';
 
 gulp.task('apiDocs', apiDocsTask);
 

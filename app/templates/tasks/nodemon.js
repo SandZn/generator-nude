@@ -1,22 +1,10 @@
-let gulp = require('gulp');
-let nodemon = require('gulp-nodemon');
+import gulp from 'gulp';
+import nodemon from 'gulp-nodemon';
+import {nodemon as options} from './config.js';
 
 gulp.task('nodemon', nodemonTask);
 
 function nodemonTask(callback) {
-
-  let options = {
-    script: 'app/index.js',
-    quiet: true,
-    ext: 'js',
-    ignore: [
-      './docs',
-    ],
-    env: {
-      ENV: 'development',
-    },
-  };
-
   let started = false;
 
   nodemon(options).on('start', setStartedStatus);
