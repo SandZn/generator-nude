@@ -4,7 +4,6 @@ var generators = require('yeoman-generator');
 var path = require('path');
 var slugify = require('underscore.string/slugify');
 var mkdirp = require('mkdirp');
-var gulpif = require('gulp-if');
 
 module.exports = generators.Base.extend({
   constructor: constructor,
