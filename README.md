@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/darlanmendonca/generator-nude.svg)](https://travis-ci.org/darlanmendonca/generator-nude) 
 [![Coverage Status](https://coveralls.io/repos/darlanmendonca/generator-nude/badge.svg?branch=master&service=github)](https://coveralls.io/github/darlanmendonca/generator-nude?branch=master)
 [![npm version](https://badge.fury.io/js/generator-nude.svg)](https://badge.fury.io/js/generator-nude)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 A generator to scaffolding HTTP API's, with Express.js and es6
 
