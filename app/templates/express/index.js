@@ -26,7 +26,7 @@ app
   .use(multer.array())
   .use(bodyParser.urlencoded({extended: true}))
   .use(bodyParser.json())
-  .use('/api', routes.api);
+  .use('/', routes.api);
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(config.database.url, startServer);
