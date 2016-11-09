@@ -5,6 +5,7 @@
   "main": "app/index.js",
   "scripts": {
     "start": "scripts/start",
+    "dev": "scripts/dev",
     "test": "scripts/test"
   },
   "apidoc": {
@@ -17,6 +18,7 @@
     }
   },
   "dependencies": {
+    "babel-cli": "6.18.0",
     "express": "^4.13.1",
     "body-parser": "^1.13.2",
     "compression": "^1.5.1",
@@ -38,7 +40,7 @@
     "chai": "^3.4.0",
     "istanbul": "^0.4.0",
     "coveralls": "^2.11.4",
-    "chai-http": "^1.0.0",
+    "chai-http": "^3.0.0",
     "faker": "^3.0.1",
     "gulp-apidoc": "^0.2.0",
     "gulp-nodemon": "^2.0.3",

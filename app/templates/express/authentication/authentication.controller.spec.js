@@ -7,14 +7,14 @@ let request = chai.request;
 let expect = chai.expect;
 
 describe('Authentication', function() {
-  describe('.local - POST /api/authentication', function() {
+  describe('.local - POST /authentication', function() {
     it('authentication failed', function(done) {
       request(app)
-        .post('/api/authentication')
+        .post('/authentication')
         .set('token', helper.user.token)
         .field('email', helper.user.email)
         .field('password', helper.user.invalidPassword)
-        .then(function(res) {
+        .end(function(err, res) {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.have.property('message', 'authentication failed');
           done();
@@ -23,11 +23,11 @@ describe('Authentication', function() {
 
     it('authentication success', function(done) {
       request(app)
-        .post('/api/authentication')
+        .post('/authentication')
         .set('token', helper.user.token)
         .field('email', helper.user.email)
         .field('password', helper.user.password)
-        .then(function(res) {
+        .end(function(err, res) {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.have.property('id', helper.user._id.toString());
           expect(res.body).to.have.property('token');
