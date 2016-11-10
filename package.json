@@ -1,6 +1,6 @@
 {
   "name": "generator-nude",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A generator to scaffolding HTTP API's, with Express.js and es6",
   "main": "app/index.js",
   "scripts": {
