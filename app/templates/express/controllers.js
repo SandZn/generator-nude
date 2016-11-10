@@ -1,6 +1,7 @@
-let api = {
-  authentication: require('./authentication/authentication.controller.js'),
-  users: require('./users/users.controller.js'),
-};
+import authentication from './authentication/authentication.controller.js';
+import users from './users/users.controller.js';
 
-module.exports = {api};
+module.exports = {
+  authentication,
+  users,
+};

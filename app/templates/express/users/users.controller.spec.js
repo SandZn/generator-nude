@@ -1,11 +1,11 @@
-let helper = require('../../test/helper.js');
-let app = require('../index.js');
-let faker = require('faker');
+import helper from '../../test/helper.js';
+import app from '../index.js';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import {request, expect} from 'chai';
+import faker from 'faker';
 
-let chai = require('chai');
-chai.use(require('chai-http'));
-let request = chai.request;
-let expect = chai.expect;
+chai.use(chaiHttp);
 
 describe('Users', function() {
   describe('.list - GET /users', function() {
@@ -64,11 +64,12 @@ describe('Users', function() {
         });
     });
 
-    it('invalid fields', function(done) {
+    xit('invalid fields', function(done) {
       request(app)
         .post('/users')
         .set('token', helper.user.token)
         .field('test', 'true')
+        .field('password', faker.internet.password())
         .end(function(err, res) {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.have.property('password');

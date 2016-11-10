@@ -1,10 +1,10 @@
-let helper = require('../../test/helper.js');
-let app = require('../index.js');
+import helper from '../../test/helper.js';
+import app from '../index.js';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import {request, expect} from 'chai';
 
-let chai = require('chai');
-chai.use(require('chai-http'));
-let request = chai.request;
-let expect = chai.expect;
+chai.use(chaiHttp);
 
 describe('Authentication', function() {
   describe('.local - POST /authentication', function() {

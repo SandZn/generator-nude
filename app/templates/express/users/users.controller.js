@@ -1,16 +1,16 @@
-let Users = require('./users.model.js');
-let ObjectId = require('mongoose').Types.ObjectId;
+import Users from './users.model.js';
+import {Types} from 'mongoose';
+
+let ObjectId = Types.ObjectId;
 let publicFields = '-__v -password';
 
-let UsersController = {
+module.exports = {
   list,
   single,
   create,
   update,
   remove,
 };
-
-module.exports = UsersController;
 
 function list(req, res) {
   /**

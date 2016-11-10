@@ -1,7 +1,8 @@
-let api = require('../controllers.js').api;
-let middlewares = require('../middlewares.js');
-let express = require('express');
-let router = express.Router();
+import api from '../controllers.js';
+import middlewares from '../middlewares.js';
+import {Router} from 'express';
+
+const router = Router();
 
 router.param('id', middlewares.id);
 

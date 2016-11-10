@@ -1,4 +1,4 @@
-let crypto = require('crypto');
+import crypto from 'crypto';
 
 module.exports = EncodeHelper;
 

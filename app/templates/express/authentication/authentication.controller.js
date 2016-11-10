@@ -1,12 +1,11 @@
-let Users = require('../users/users.model.js');
-let config = require('../../config');
-let jwt = require('jsonwebtoken');
-let encode = require('../encode/encode.helper.js');
+import Users from '../users/users.model.js';
+import config from '../../config';
+import jwt from 'jsonwebtoken';
+import encode from '../encode/encode.helper.js';
+
 let publicFields = '-__v -password';
 
-let AuthenticationController = {local};
-
-module.exports = AuthenticationController;
+module.exports = {local};
 
 function local(req, res) {
   /**
