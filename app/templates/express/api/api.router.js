@@ -7,8 +7,8 @@ const router = Router();
 router.param('id', middlewares.id);
 
 router
-  .route('/authentication')
-  .post(api.authentication.local);
+  .route('/users/authentication')
+  .post(api.users.authenticate);
 
 router.use(middlewares.token);
 

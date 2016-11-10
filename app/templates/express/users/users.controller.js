@@ -1,5 +1,8 @@
 import Users from './users.model.js';
 import {Types} from 'mongoose';
+import config from '../../config';
+import jwt from 'jsonwebtoken';
+import encode from '../encode/encode.helper.js';
 
 let ObjectId = Types.ObjectId;
 let publicFields = '-__v -password';
@@ -10,11 +13,12 @@ module.exports = {
   create,
   update,
   remove,
+  authenticate,
 };
 
 function list(req, res) {
   /**
-    * @api {GET} /users/ list
+    * @api {GET} /users list
     * @apiDescription Get list of users
     * @apiName list
     * @apiGroup Users
@@ -149,5 +153,39 @@ function remove(req, res) {
     res
       .status(204)
       .json();
+  }
+};
+
+function authenticate(req, res) {
+  /**
+    * @api {POST} /users/authentication authentication
+    * @apiDescription Authentication user with local strategy
+    * @apiName local
+    * @apiGroup Auth
+    * @apiPermission Public
+    *
+    * @apiParam {String} email email of user
+    * @apiParam {String} password password of user
+    */
+
+  let email = req.body.email;
+  let password = encode(req.body.password);
+
+  Users
+    .findOne({email, password}, publicFields)
+    .then(response);
+
+  function response(user) {
+    if (!user) {
+      let message = 'authentication failed';
+      return res
+        .status(401)
+        .json({message});
+    }
+
+    let id = user.id;
+    let token = jwt.sign(user, config.secret, config.token);
+
+    res.json({id, token});
   }
 };

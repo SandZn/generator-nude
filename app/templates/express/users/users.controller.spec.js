@@ -8,6 +8,35 @@ import faker from 'faker';
 chai.use(chaiHttp);
 
 describe('Users', function() {
+  describe('.authenticate - POST /users/authentication', function() {
+    it('authentication failed', function(done) {
+      request(app)
+        .post('/users/authentication')
+        .set('token', helper.user.token)
+        .field('email', helper.user.email)
+        .field('password', helper.user.invalidPassword)
+        .end(function(err, res) {
+          expect(res.statusCode).to.equal(401);
+          expect(res.body).to.have.property('message', 'authentication failed');
+          done();
+        });
+    });
+
+    it('authentication success', function(done) {
+      request(app)
+        .post('/users/authentication')
+        .set('token', helper.user.token)
+        .field('email', helper.user.email)
+        .field('password', helper.user.password)
+        .end(function(err, res) {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.have.property('id', helper.user._id.toString());
+          expect(res.body).to.have.property('token');
+          done();
+        });
+    });
+  });
+
   describe('.list - GET /users', function() {
     it('no token provided', function(done) {
       request(app)
