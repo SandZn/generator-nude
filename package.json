@@ -1,6 +1,6 @@
 {
   "name": "generator-nude",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A simple generator (for Yeoman) to scaffolding Node.js API's, with Express.js and ecmaScript 6.",
   "main": "app/index.es5.js",
   "scripts": {
@@ -43,6 +43,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-if": "^2.0.0",
     "mkdirp": "^0.5.1",
-    "underscore.string": "^3.3.4"
+    "underscore.string": "^3.3.4",
+    "yeoman-generator": "^0.22.6"
   }
 }
