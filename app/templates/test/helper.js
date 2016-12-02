@@ -1,5 +1,3 @@
-'use strict';
-
 let faker = require('faker');
 let config = require('../config');
 

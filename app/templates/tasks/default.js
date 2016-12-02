@@ -1,12 +1,8 @@
-'use strict';
+import gulp from 'gulp';
 
-let gulp = require('gulp');
-
-let tasks = [
+gulp.task('default', [
   'apiDocs',
   'nodemon',
   'lint',
   'watch',
-];
-
-gulp.task('default', tasks);
+]);

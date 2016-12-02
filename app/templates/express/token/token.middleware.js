@@ -1,9 +1,8 @@
-'use strict';
+import bluebird from 'bluebird';
+import jsonwebtoken from 'jsonwebtoken';
+import {secret} from '../../config';
 
-let bluebird = require('bluebird');
-let jwt = require('jsonwebtoken');
-let config = require('../../config');
-jwt = bluebird.promisifyAll(jwt);
+let jwt = bluebird.promisifyAll(jsonwebtoken);
 
 module.exports = validateToken;
 
@@ -13,7 +12,7 @@ function validateToken(req, res, next) {
     || req.query.token;
 
   jwt
-    .verifyAsync(token, config.secret)
+    .verifyAsync(token, secret)
     .then(decodeToken)
     .catch(invalidToken);
 

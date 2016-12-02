@@ -1,28 +1,27 @@
-'use strict';
+import {users} from '../controllers.js';
+import {id, token} from '../middlewares.js';
+import {Router} from 'express';
 
-let api = require('../controllers.js').api;
-let middlewares = require('../middlewares.js');
-let express = require('express');
-let router = express.Router();
+const router = Router();
 
-router.param('id', middlewares.id);
+router.param('id', id);
 
 router
-  .route('/authentication')
-  .post(api.authentication.local);
+  .route('/users/authentication')
+  .post(users.authenticate);
 
-router.use(middlewares.token);
+router.use(token);
 
 router
   .route('/users')
-  .get(api.users.list)
-  .post(api.users.create);
+  .get(users.list)
+  .post(users.create);
 
 router
   .route('/users/:id')
-  .get(api.users.single)
-  .put(api.users.update)
-  .delete(api.users.remove);
+  .get(users.single)
+  .put(users.update)
+  .delete(users.remove);
 
 router.use(resourceNotFound);
 

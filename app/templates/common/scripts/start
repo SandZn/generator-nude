@@ -2,4 +2,4 @@
 
 set -e
 
-./node_modules/nodemon/bin/nodemon.js --quiet app/index.js --env 'development'
+./node_modules/babel-cli/bin/babel-node.js --presets=es2015 app/index.js --env 'development'

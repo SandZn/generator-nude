@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = validateId;
 
 function validateId (req, res, next, value) {

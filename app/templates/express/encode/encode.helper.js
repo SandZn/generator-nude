@@ -1,10 +1,8 @@
-'use strict';
-
-let crypto = require('crypto');
+import crypto from 'crypto';
 
 module.exports = EncodeHelper;
 
-function EncodeHelper (str) {
+function EncodeHelper (str='') {
   return crypto
     .createHash('md5')
     .update(str)

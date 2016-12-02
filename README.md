@@ -1,18 +1,17 @@
 [![Build Status](https://travis-ci.org/darlanmendonca/generator-nude.svg)](https://travis-ci.org/darlanmendonca/generator-nude) 
 [![Coverage Status](https://coveralls.io/repos/darlanmendonca/generator-nude/badge.svg?branch=master&service=github)](https://coveralls.io/github/darlanmendonca/generator-nude?branch=master)
 [![npm version](https://badge.fury.io/js/generator-nude.svg)](https://badge.fury.io/js/generator-nude)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-A simple generator (for Yeoman) to scaffolding Node.js API's, with Express.js and ecmaScript 6.
-
-![API Illustration](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
+A generator to scaffolding HTTP API's, with Express.js and es6
 
 ### Offers
 
-- lint scripts (with [ESLint](http://eslint.org/))
-- automatically create Documentation (with [API Docs](http://apidocjs.com/))
-- Integration/E2e Tests (with [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Chai-http](http://chaijs.com/plugins/chai-http/))
-- Coverage Tests (with [Istambul](https://gotwarlost.github.io/istanbul/))
 - authentication with jwt (using [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken))
+- lint scripts (with [ESLint](http://eslint.org/))
+- auto documentation (with [API Docs](http://apidocjs.com/))
+- automated tests (with [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Chai-http](http://chaijs.com/plugins/chai-http/))
+- coverage tests (with [Istambul](https://gotwarlost.github.io/istanbul/))
 
 
 ### Requirements
@@ -48,9 +47,8 @@ After install dependencies, running your project using default task on Gulp, run
 gulp
 ```
 
+and to run tests
 
-#### License
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Darlan Mendonça
+```sh
+npm test
+```

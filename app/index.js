@@ -1,102 +1,114 @@
 'use strict';
 
-let generators = require('yeoman-generator');
-let path = require('path');
-let slugify = require('underscore.string/slugify');
-let mkdirp = require('mkdirp');
+var _yeomanGenerator = require('yeoman-generator');
 
-module.exports = generators.Base.extend({
-  constructor,
-  appNameParam,
-  appSecretParam,
-  common,
-  gulp,
-  express,
-  test,
-  docs,
-  install,
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _mkdirp = require('mkdirp');
+
+var _mkdirp2 = _interopRequireDefault(_mkdirp);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = _yeomanGenerator.Base.extend({
+  constructor: constructor,
+  applicationNameParam: applicationNameParam,
+  appSecretParam: appSecretParam,
+  saveParams: saveParams,
+  common: common,
+  gulp: gulp,
+  express: express,
+  test: test,
+  docs: docs,
+  install: install
 });
 
 function constructor() {
-  generators.Base.apply(this, arguments);
-  this.slugify = slugify;
-
-  this.argument('appName', {
-    desc: 'create an app with name [appName]',
-    type: Boolean,
-    required: false,
-    defaults: path.basename(process.cwd()),
-  });
+  _yeomanGenerator.Base.apply(this, arguments);
 }
 
-function appNameParam() {
-  let done = this.async();
-  let prompt = {
+function applicationNameParam() {
+  var _this = this;
+
+  var done = this.async();
+  var prompt = {
     type: 'input',
-    name: 'appName',
+    name: 'applicationName',
     message: 'application name',
-    default: this.appName,
+    default: _path2.default.basename(process.cwd())
   };
 
-  this.prompt(prompt, data => {
-    this.appName = data.appName;
+  this.prompt(prompt, function (data) {
+    _this.applicationName = data.applicationName;
+    _this.applicationSlug = require('underscore.string/slugify')(_this.applicationName);
     done();
   });
 }
 
 function appSecretParam() {
-  let done = this.async();
-  let defaultSecret = Math
-    .random()
-    .toString(36)
-    .slice(-16);
+  var _this2 = this;
 
-  let prompt = {
+  var done = this.async();
+  var defaultSecret = Math.random().toString(36).slice(-16);
+
+  var prompt = {
     type: 'input',
     name: 'appSecret',
     message: 'type secret to use in json web token',
-    default: defaultSecret,
+    default: defaultSecret
   };
 
-  this.prompt(prompt, data => {
-    this.appSecret = data.appSecret;
+  this.prompt(prompt, function (data) {
+    _this2.appSecret = data.appSecret;
     done();
   });
 }
 
+function saveParams() {
+  var applicationName = this.applicationName;
+  var applicationSlug = this.applicationSlug;
+
+  this.config.set({
+    applicationName: applicationName,
+    applicationSlug: applicationSlug
+  });
+}
+
 function common() {
-  this.sourceRoot(`${__dirname}/templates/common`, this);
+  this.sourceRoot(__dirname + '/templates/common', this);
   this.directory('.', '.');
 }
 
 function gulp() {
-  this.sourceRoot(`${__dirname}/templates/gulp`, this);
+  this.sourceRoot(__dirname + '/templates/gulp', this);
   this.directory('.', '.');
 
-  this.sourceRoot(`${__dirname}/templates/tasks`, this);
+  this.sourceRoot(__dirname + '/templates/tasks', this);
   this.directory('.', './tasks');
 }
 
 function express() {
-  mkdirp('app');
-  this.sourceRoot(`${__dirname}/templates/express`, this);
+  (0, _mkdirp2.default)('app');
+  this.sourceRoot(__dirname + '/templates/express', this);
   this.directory('.', './app');
 }
 
 function test() {
-  mkdirp('test');
-  this.sourceRoot(`${__dirname}/templates/test`, this);
+  (0, _mkdirp2.default)('test');
+  this.sourceRoot(__dirname + '/templates/test', this);
   this.directory('.', './test');
 }
 
 function docs() {
-  mkdirp('docs');
+  (0, _mkdirp2.default)('docs');
 }
 
 function install() {
   this.installDependencies({
     npm: true,
     bower: false,
-    skipInstall: true,
+    skipInstall: true
   });
 }

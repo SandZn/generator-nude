@@ -1,19 +1,17 @@
-'use strict';
+import helper from '../../test/helper.js';
+import app from '../index.js';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import {request, expect} from 'chai';
 
-let helper = require('../../test/helper.js');
-let app = require('../index.js');
-
-let chai = require('chai');
-chai.use(require('chai-http'));
-let request = chai.request;
-let expect = chai.expect;
+chai.use(chaiHttp);
 
 describe('API', function() {
-  describe('not found - GET /api/chiforimfola', function() {
+  describe('not found - GET /chiforimfola', function() {
     it('no token provided', function(done) {
       request(app)
-        .get('/api/chiforimfola')
-        .then(function(res) {
+        .get('/chiforimfola')
+        .end(function(err, res) {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.have.property('message', 'no token provided');
           done();
@@ -22,9 +20,9 @@ describe('API', function() {
 
     it('invalid token', function(done) {
       request(app)
-        .get('/api/chiforimfola')
+        .get('/chiforimfola')
         .set('token', helper.user.invalidToken)
-        .then(function(res) {
+        .end(function(err, res) {
           expect(res.statusCode).to.be.equal(401);
           expect(res.body).to.have.property('message', 'invalid token');
           done();
@@ -33,9 +31,9 @@ describe('API', function() {
 
     it('404 not found', function(done) {
       request(app)
-        .get('/api/chiforimfola')
+        .get('/chiforimfola')
         .set('token', helper.user.token)
-        .then(function(res) {
+        .end(function(err, res) {
           expect(res.statusCode).to.equal(404);
           expect(res.body).to.have.property('message', 'resource not found :(');
           done();
@@ -43,4 +41,3 @@ describe('API', function() {
     });
   });
 });
-

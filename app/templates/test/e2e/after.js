@@ -1,5 +1,3 @@
-'use strict';
-
 let Users = require('../../app/users/users.model.js');
 
 after(removeUsers);

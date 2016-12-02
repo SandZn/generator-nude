@@ -1,7 +1,5 @@
-'use strict';
-
-let mongoose = require('mongoose');
-let encode = require('../encode/encode.helper.js');
+import mongoose from 'mongoose';
+import encode from '../encode/encode.helper.js';
 
 let schema = new mongoose.Schema({
   email: {type: String, required: true},

@@ -1,8 +1,8 @@
 {
   "name": "generator-nude",
-  "version": "0.1.4",
-  "description": "A simple generator (for Yeoman) to scaffolding Node.js API's, with Express.js and ecmaScript 6.",
-  "main": "app/index.es5.js",
+  "version": "0.2.1",
+  "description": "A generator to scaffolding HTTP API's, with Express.js and es6",
+  "main": "app/index.js",
   "scripts": {
     "transpile": "scripts/transpile",
     "pretest": "npm run transpile",
@@ -35,6 +35,7 @@
     "gulp-eslint": "^2.0.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
+    "require-all": "^2.0.0",
     "yeoman-assert": "^2.1.1",
     "yeoman-generator": "^0.22.5",
     "yeoman-test": "^1.1.0"

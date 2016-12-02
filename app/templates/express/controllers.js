@@ -1,8 +1,5 @@
-'use strict';
+import users from './users/users.controller.js';
 
-let api = {
-  authentication: require('./authentication/authentication.controller.js'),
-  users: require('./users/users.controller.js'),
+module.exports = {
+  users,
 };
-
-module.exports = {api};

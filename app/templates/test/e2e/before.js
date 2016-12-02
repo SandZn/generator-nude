@@ -1,5 +1,3 @@
-'use strict';
-
 let config = require('../../config');
 let helper = require('../helper.js');
 

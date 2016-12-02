@@ -1,19 +1,19 @@
-'use strict';
+import test from 'yeoman-test';
+import assert from 'yeoman-assert';
+import packageJSON from '../package.json';
 
-const helpers = require('yeoman-test');
-const assert = require('yeoman-assert');
-const generator = `${process.env.PWD}/app/index.es5.js`;
+const generator = `${process.env.PWD}/${packageJSON.main}`;
 
 describe('generate a scaffolding', scaffolding);
 
 function scaffolding() {
   const params = {
-    appName: 'lorem',
+    applicationName: 'lorem',
     appSecret: 'lorem',
   };
 
   it('files', done => {
-    helpers
+    test
       .run(generator)
       .withPrompts(params)
       .toPromise()
@@ -24,12 +24,13 @@ function scaffolding() {
         '.editorconfig',
         '.gitignore',
         '.eslintrc.js',
+        '.yo-rc.json',
         'README.md',
         'app',
         'config.js',
         'app/controllers.js',
         'docs',
-        'gulpfile.js',
+        'gulpfile.babel.js',
         'app/middlewares.js',
         'package.json',
         'app/routers.js',
