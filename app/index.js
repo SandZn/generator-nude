@@ -1,114 +1,103 @@
-'use strict';
+const {Base: yeoman} = require('yeoman-generator')
+const path = require('path')
+const mkdirp = require('mkdirp')
 
-var _yeomanGenerator = require('yeoman-generator');
-
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
-var _mkdirp = require('mkdirp');
-
-var _mkdirp2 = _interopRequireDefault(_mkdirp);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = _yeomanGenerator.Base.extend({
-  constructor: constructor,
-  applicationNameParam: applicationNameParam,
-  appSecretParam: appSecretParam,
-  saveParams: saveParams,
-  common: common,
-  gulp: gulp,
-  express: express,
-  test: test,
-  docs: docs,
-  install: install
-});
+module.exports = yeoman.extend({
+  constructor,
+  applicationNameParam,
+  appSecretParam,
+  saveParams,
+  common,
+  gulp,
+  express,
+  test,
+  docs,
+  install,
+})
 
 function constructor() {
-  _yeomanGenerator.Base.apply(this, arguments);
+  yeoman.apply(this, arguments)
 }
 
 function applicationNameParam() {
-  var _this = this;
-
-  var done = this.async();
-  var prompt = {
+  let done = this.async()
+  let prompt = {
     type: 'input',
     name: 'applicationName',
     message: 'application name',
-    default: _path2.default.basename(process.cwd())
-  };
+    default: path.basename(process.cwd()),
+  }
 
-  this.prompt(prompt, function (data) {
-    _this.applicationName = data.applicationName;
-    _this.applicationSlug = require('underscore.string/slugify')(_this.applicationName);
-    done();
-  });
+  this.prompt(prompt, data => {
+    this.applicationName = data.applicationName
+    this.applicationSlug = require('underscore.string/slugify')(this.applicationName)
+    done()
+  })
 }
 
 function appSecretParam() {
-  var _this2 = this;
+  let done = this.async()
+  let defaultSecret = Math
+    .random()
+    .toString(36)
+    .slice(-16)
 
-  var done = this.async();
-  var defaultSecret = Math.random().toString(36).slice(-16);
-
-  var prompt = {
+  let prompt = {
     type: 'input',
     name: 'appSecret',
     message: 'type secret to use in json web token',
-    default: defaultSecret
-  };
+    default: defaultSecret,
+  }
 
-  this.prompt(prompt, function (data) {
-    _this2.appSecret = data.appSecret;
-    done();
-  });
+  this.prompt(prompt, data => {
+    this.appSecret = data.appSecret
+    done()
+  })
 }
 
 function saveParams() {
-  var applicationName = this.applicationName;
-  var applicationSlug = this.applicationSlug;
+  const applicationName = this.applicationName
+  const applicationSlug = this.applicationSlug
 
   this.config.set({
-    applicationName: applicationName,
-    applicationSlug: applicationSlug
-  });
+    applicationName,
+    applicationSlug,
+  })
 }
 
 function common() {
-  this.sourceRoot(__dirname + '/templates/common', this);
-  this.directory('.', '.');
+  this.sourceRoot(`${__dirname}/templates/common`, this)
+  this.directory('.', '.')
 }
 
 function gulp() {
-  this.sourceRoot(__dirname + '/templates/gulp', this);
-  this.directory('.', '.');
+  this.sourceRoot(`${__dirname}/templates/gulp`, this)
+  this.directory('.', '.')
 
-  this.sourceRoot(__dirname + '/templates/tasks', this);
-  this.directory('.', './tasks');
+  this.sourceRoot(`${__dirname}/templates/tasks`, this)
+  this.directory('.', './tasks')
 }
 
 function express() {
-  (0, _mkdirp2.default)('app');
-  this.sourceRoot(__dirname + '/templates/express', this);
-  this.directory('.', './app');
+  mkdirp('app')
+  this.sourceRoot(`${__dirname}/templates/express`, this)
+  this.directory('.', './app')
 }
 
 function test() {
-  (0, _mkdirp2.default)('test');
-  this.sourceRoot(__dirname + '/templates/test', this);
-  this.directory('.', './test');
+  mkdirp('test')
+  this.sourceRoot(`${__dirname}/templates/test`, this)
+  this.directory('.', './test')
 }
 
 function docs() {
-  (0, _mkdirp2.default)('docs');
+  mkdirp('docs')
 }
 
 function install() {
   this.installDependencies({
     npm: true,
     bower: false,
-    skipInstall: true
-  });
+    skipInstall: true,
+  })
 }
