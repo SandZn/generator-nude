@@ -40,7 +40,6 @@ let config = {
   },
 }
 
-const shell = require('shell-arguments')
-const env = shell.env || process.env.NODE_ENV || 'production'
+const shell = process.env.NODE_ENV || 'production'
 
 module.exports = config[env]
