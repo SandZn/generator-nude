@@ -1,5 +1,5 @@
-let faker = require('faker');
-let config = require('../config');
+const faker = require('faker')
+const config = require('../config')
 
 module.exports = {
   API: `http://localhost:${config.server.port}/api`,
@@ -12,4 +12,4 @@ module.exports = {
     birthdate: faker.date.past(),
     gender: 'male',
   },
-};
+}

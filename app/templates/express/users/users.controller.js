@@ -1,11 +1,11 @@
-import Users from './users.model.js';
-import {Types} from 'mongoose';
-import config from '../../config';
-import jwt from 'jsonwebtoken';
-import encode from '../encode/encode.helper.js';
+import Users from './users.model.js'
+import {Types} from 'mongoose'
+import config from '../../config'
+import jwt from 'jsonwebtoken'
+import encode from '../encode/encode.helper.js'
 
-let ObjectId = Types.ObjectId;
-let publicFields = '-__v -password';
+let ObjectId = Types.ObjectId
+let publicFields = '-__v -password'
 
 module.exports = {
   list,
@@ -14,7 +14,7 @@ module.exports = {
   update,
   remove,
   authenticate,
-};
+}
 
 function list(req, res) {
   /**
@@ -27,18 +27,18 @@ function list(req, res) {
 
   Users
     .find({}, publicFields)
-    .then(response);
+    .then(response)
 
   function response(users) {
     let status = users.length
       ? 200
-      : 204;
+      : 204
 
     res
       .status(status)
-      .json(users);
+      .json(users)
   }
-};
+}
 
 function single(req, res) {
   /**
@@ -49,22 +49,22 @@ function single(req, res) {
     * @apiPermission Authenticated
     */
 
-  let _id = new ObjectId(req.params.id);
+  let _id = new ObjectId(req.params.id)
 
   Users
     .findOne({_id}, publicFields)
-    .then(response);
+    .then(response)
 
   function response(user) {
     let status = user
       ? 200
-      : 204;
+      : 204
 
     res
       .status(status)
-      .json(user);
+      .json(user)
   }
-};
+}
 
 function create(req, res) {
   /**
@@ -78,27 +78,27 @@ function create(req, res) {
     * @apiParam {String} password password of user
     */
 
-  let user = new Users(req.body);
+  let user = new Users(req.body)
 
   user
     .save()
     .then(response)
-    .catch(badRequest);
+    .catch(badRequest)
 
   function response(user) {
-    let id = user._id;
+    let id = user._id
 
     res
       .status(201)
-      .json({id});
+      .json({id})
   }
 
   function badRequest(err) {
     res
       .status(400)
-      .json(err.errors);
+      .json(err.errors)
   }
-};
+}
 
 function update(req, res) {
   /**
@@ -109,32 +109,32 @@ function update(req, res) {
     * @apiPermission Authenticated
     */
 
-  let _id = new ObjectId(req.params.id);
+  let _id = new ObjectId(req.params.id)
 
   Users
     .findOne({_id})
     .then(updateKeys)
     .then(save)
-    .then(response);
+    .then(response)
 
   function updateKeys(user) {
     for (let key in req.body) {
-      user[key] = req.body[key];
+      user[key] = req.body[key]
     }
 
-    return user;
+    return user
   }
 
   function save(user) {
-    return user.save();
+    return user.save()
   }
 
   function response() {
     res
       .status(204)
-      .json();
+      .json()
   }
-};
+}
 
 function remove(req, res) {
   /**
@@ -147,14 +147,14 @@ function remove(req, res) {
 
   Users
     .findByIdAndRemove(req.params.id)
-    .then(response);
+    .then(response)
 
   function response() {
     res
       .status(204)
-      .json();
+      .json()
   }
-};
+}
 
 function authenticate(req, res) {
   /**
@@ -168,24 +168,24 @@ function authenticate(req, res) {
     * @apiParam {String} password password of user
     */
 
-  let email = req.body.email;
-  let password = encode(req.body.password);
+  let email = req.body.email
+  let password = encode(req.body.password)
 
   Users
     .findOne({email, password}, publicFields)
-    .then(response);
+    .then(response)
 
   function response(user) {
     if (!user) {
-      let message = 'authentication failed';
+      let message = 'authentication failed'
       return res
         .status(401)
-        .json({message});
+        .json({message})
     }
 
-    let id = user.id;
-    let token = jwt.sign(user, config.secret, config.token);
+    let id = user.id
+    let token = jwt.sign(user, config.secret, config.token)
 
-    res.json({id, token});
+    res.json({id, token})
   }
-};
+}

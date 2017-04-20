@@ -1,10 +1,10 @@
-import crypto from 'crypto';
+import crypto from 'crypto'
 
-module.exports = EncodeHelper;
+module.exports = EncodeHelper
 
-function EncodeHelper (str='') {
+function EncodeHelper (str = '') {
   return crypto
     .createHash('md5')
     .update(str)
-    .digest('hex');
-};
+    .digest('hex')
+}

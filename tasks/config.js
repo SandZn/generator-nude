@@ -7,4 +7,4 @@ module.exports = {
     './test/unit/generator.spec.js',
     'app/**/*.js',
   ],
-};
+}

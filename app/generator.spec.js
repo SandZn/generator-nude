@@ -1,23 +1,23 @@
-import test from 'yeoman-test';
-import assert from 'yeoman-assert';
-import packageJSON from '../package.json';
+import test from 'yeoman-test'
+import assert from 'yeoman-assert'
+import packageJSON from '../package.json'
 
-const generator = `${process.env.PWD}/${packageJSON.main}`;
+const generator = `${process.env.PWD}/${packageJSON.main}`
 
-describe('generate a scaffolding', scaffolding);
+describe('generate a scaffolding', scaffolding)
 
 function scaffolding() {
   const params = {
     applicationName: 'lorem',
     appSecret: 'lorem',
-  };
+  }
 
   it('files', done => {
     test
       .run(generator)
       .withPrompts(params)
       .toPromise()
-      .then(assertionFiles);
+      .then(assertionFiles)
 
     function assertionFiles() {
       assert.file([
@@ -36,9 +36,9 @@ function scaffolding() {
         'app/routers.js',
         'test',
         'tasks',
-      ]);
+      ])
 
-      done();
+      done()
     }
-  });
+  })
 }

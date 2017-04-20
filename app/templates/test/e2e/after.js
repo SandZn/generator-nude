@@ -1,11 +1,11 @@
-let Users = require('../../app/users/users.model.js');
+const Users = require('../../app/users/users.model.js')
 
-after(removeUsers);
+after(removeUsers)
 
 function removeUsers(done) {
   Users
     .remove({})
     .then(function() {
-      done();
-    });
+      done()
+    })
 }

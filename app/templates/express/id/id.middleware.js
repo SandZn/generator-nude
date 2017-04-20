@@ -1,15 +1,15 @@
-module.exports = validateId;
+module.exports = validateId
 
 function validateId (req, res, next, value) {
-  let reg = /^[0-9a-fA-F]{24}$/;
-  let valid = reg.test(value);
+  let reg = /^[0-9a-fA-F]{24}$/
+  let valid = reg.test(value)
 
   if (!valid) {
-    let message = 'invalid id';
+    let message = 'invalid id'
     return res
       .status(400)
-      .json({message});
+      .json({message})
   }
 
-  next();
-};
+  next()
+}

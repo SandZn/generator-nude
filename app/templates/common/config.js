@@ -38,9 +38,9 @@ let config = {
       expiresIn: 1440, // 24 hours
     },
   },
-};
+}
 
-let shell = require('shell-arguments');
-let env = shell.env || process.env.NODE_ENV || 'production';
+const shell = require('shell-arguments')
+const env = shell.env || process.env.NODE_ENV || 'production'
 
-module.exports = config[env];
+module.exports = config[env]
