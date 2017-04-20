@@ -36,14 +36,11 @@
     "gulp-eslint": "^2.0.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
-    "require-all": "^2.0.0",
     "yeoman-assert": "^2.1.1",
     "yeoman-generator": "^0.22.5",
     "yeoman-test": "^1.1.0"
   },
   "dependencies": {
-    "gulp-babel": "^6.1.2",
-    "gulp-if": "^2.0.0",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.3.4",
     "yeoman-generator": "^0.22.6"
