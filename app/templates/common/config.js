@@ -40,6 +40,6 @@ let config = {
   },
 }
 
-const shell = process.env.NODE_ENV || 'production'
+const env = process.env.NODE_ENV || 'production'
 
 module.exports = config[env]
